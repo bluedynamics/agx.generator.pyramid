@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configure
+    xmlns:agx="http://namespaces.zope.org/agx"
+    xmlns="http://namespaces.zope.org/zope">
+
+  <agx:generator
+      name="mygenerator"
+      transform="uml2fs"
+      depends="connectorgenerator"/>
+
+  <agx:generator name="someumlgenerator" transform="xmi2uml" depends="NO"/>
+
+  <utility
+      name="agx.generator.pyramid.pyramid.pyramid"
+      component="agx.generator.pyramid.pyramid.pyramid"
+      provides="agx.core.interfaces.IProfileLocation"/>
+
+<include package="agx.generator.pyegg"/></configure>
