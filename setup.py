@@ -40,7 +40,8 @@ setup(name="agx.generator.pyramid",
       ),
       entry_points="""
       ##code-section entry_points
-      
+      [agx.generator]
+        register = agx.generator.pyramid:register
       ##/code-section entry_points
       """,
       ##code-section additionals
