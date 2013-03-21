@@ -137,13 +137,37 @@
     <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_SmnE0X7MEeKISLySejkwCA" name="extension_configurator" type="_LYpCQH7MEeKISLySejkwCA" aggregation="composite" association="_SmnE0H7MEeKISLySejkwCA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_djrjAH9TEeKISLySejkwCA" name="resource"/>
-  <packagedElement xmi:type="uml:Stereotype" xmi:id="_nqNRgIDcEeK6Vp61kWFK7A" name="alchemy">
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_nqNRgIDcEeK6Vp61kWFK7A" name="sqlalchemy">
     <ownedAttribute xmi:id="_qQIK4IDcEeK6Vp61kWFK7A" name="base_Package" association="_qQIx8IDcEeK6Vp61kWFK7A">
       <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
     </ownedAttribute>
+    <ownedAttribute xmi:id="_LP3vgJJOEeKswagSEYVRHw" name="engine_name" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LywaIJJOEeKswagSEYVRHw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LyxBMJJOEeKswagSEYVRHw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_LyyPUJJOEeKswagSEYVRHw">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_cx5b0JJOEeKswagSEYVRHw" name="engine_url" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c5X80JJOEeKswagSEYVRHw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c5Yj4JJOEeKswagSEYVRHw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_c5ZK8JJOEeKswagSEYVRHw">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_YLOEQJJREeKswagSEYVRHw" name="session_name" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Yrb1YJJREeKswagSEYVRHw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YrcccJJREeKswagSEYVRHw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_YrdqkJJREeKswagSEYVRHw">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
   </packagedElement>
-  <packagedElement xmi:type="uml:Extension" xmi:id="_qQIx8IDcEeK6Vp61kWFK7A" name="E_alchemy_Package1" memberEnd="_qQIx8YDcEeK6Vp61kWFK7A _qQIK4IDcEeK6Vp61kWFK7A">
-    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_qQIx8YDcEeK6Vp61kWFK7A" name="extension_alchemy" type="_nqNRgIDcEeK6Vp61kWFK7A" aggregation="composite" association="_qQIx8IDcEeK6Vp61kWFK7A"/>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_qQIx8IDcEeK6Vp61kWFK7A" name="E_sqlalchemy_Package1" memberEnd="_qQIx8YDcEeK6Vp61kWFK7A _qQIK4IDcEeK6Vp61kWFK7A">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_qQIx8YDcEeK6Vp61kWFK7A" name="extension_sqlalchemy" type="_nqNRgIDcEeK6Vp61kWFK7A" aggregation="composite" association="_qQIx8IDcEeK6Vp61kWFK7A"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_qXwAYIDdEeK6Vp61kWFK7A" name="buildout">
     <ownedAttribute xmi:id="_rkwmEIDdEeK6Vp61kWFK7A" name="base_Package" association="_rkwmEYDdEeK6Vp61kWFK7A">
