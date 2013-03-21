@@ -2,13 +2,6 @@
 <xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:generator="http:///schemas/generator/_1Yi2wHtrEeKfMvxpliE4xA/48" xmlns:pyegg="http:///schemas/pyegg/_FjJE0HtmEeKvC-Xbutnx2A/28" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/generator/_1Yi2wHtrEeKfMvxpliE4xA/48 uml_profiles/generator.profile.uml#_1Yi2wXtrEeKfMvxpliE4xA http:///schemas/pyegg/_FjJE0HtmEeKvC-Xbutnx2A/28 uml_profiles/pyegg.profile.uml#_FjJr4HtmEeKvC-Xbutnx2A">
   <uml:Model xmi:id="_rxHwYFyQEeG1mLF7jMwarw" name="model">
     <packagedElement xmi:type="uml:Package" xmi:id="_0vR-MFyQEeG1mLF7jMwarw" name="agx.generator.pyramid">
-      <ownedComment xmi:id="_K2ZpQHrZEeK-RajENgwa_Q">
-        <body>Step 1
-=====
-- change &quot;MyProfile&quot; to your profile name (&quot;Foo&quot;) and 
-- (optionally) edit the tagged value &quot;name&quot; (&quot;foo&quot; as in &quot;foo.profile.uml&quot;)
-Class name is the default for &quot;name&quot;, but can be overriden.</body>
-      </ownedComment>
       <packagedElement xmi:type="uml:Class" xmi:id="_RwyXUAshEeKGfoivsLRX3g" clientDependency="_ksdoEAsqEeKGfoivsLRX3g" name="uml2fs"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_ZmRTkAsmEeKGfoivsLRX3g" name="xmi2uml"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_NHPDMAsqEeKGfoivsLRX3g" clientDependency="_wA6-4AsqEeKGfoivsLRX3g" name="hierarchygenerator"/>
@@ -38,18 +31,19 @@ Class name is the default for &quot;name&quot;, but can be overriden.</body>
         <packagedElement xmi:type="uml:Class" xmi:id="_0O-BUI98EeK0xejX5iixaQ" clientDependency="_-oR-gI98EeK0xejX5iixaQ _GjOb0I99EeK0xejX5iixaQ" name="generate_view"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_-oR-gI98EeK0xejX5iixaQ" name="" client="_0O-BUI98EeK0xejX5iixaQ" supplier="_LlMWUI98EeK0xejX5iixaQ"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_GjOb0I99EeK0xejX5iixaQ" name="" client="_0O-BUI98EeK0xejX5iixaQ" supplier="_NHPDMAsqEeKGfoivsLRX3g"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_j4ZGwI_EEeK0xejX5iixaQ" clientDependency="_q9xOAI_EEeK0xejX5iixaQ _sVgdAI_EEeK0xejX5iixaQ" name="generate_buildout"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_q9xOAI_EEeK0xejX5iixaQ" name="" client="_j4ZGwI_EEeK0xejX5iixaQ" supplier="_NSw9sI_EEeK0xejX5iixaQ"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_sVgdAI_EEeK0xejX5iixaQ" name="" client="_j4ZGwI_EEeK0xejX5iixaQ" supplier="_EGx54AsrEeKGfoivsLRX3g"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_Srs_EAsvEeKbFrhzZvXz8w" name="scope">
-        <ownedComment xmi:id="_1JkT8HrZEeK-RajENgwa_Q">
-          <body>Step 2a
-======
-Replace this comment with a Class for the custom scope.</body>
-        </ownedComment>
         <packagedElement xmi:type="uml:Class" xmi:id="_Ic1AQBRDEeKcC97Hb5tvFQ" name="pyclass"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_oWOAwI9zEeK0xejX5iixaQ" name="pyegg"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_KGZEwI92EeK0xejX5iixaQ" name="pyramid_configuration"/>
-        <packagedElement xmi:type="uml:Class" xmi:id="_vmly4I96EeK0xejX5iixaQ" name="static_view"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_vmly4I96EeK0xejX5iixaQ" name="pyramid_static_view"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_LlMWUI98EeK0xejX5iixaQ" name="pyramid_view"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_NSw9sI_EEeK0xejX5iixaQ" name="pyramid_buildout"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_I3t6IJFCEeKswagSEYVRHw" name="view_function"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Mq1mcJFCEeKswagSEYVRHw" name="view_method"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_kzJEgA5vEeKgj7WFwZrcAg" name="" client="_W0v3AA5vEeKgj7WFwZrcAg" supplier="_WqdF4AsqEeKGfoivsLRX3g"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_W0v3AA5vEeKgj7WFwZrcAg" clientDependency="_kzJEgA5vEeKgj7WFwZrcAg" name="mygenerator"/>
@@ -113,4 +107,17 @@ Replace this comment with a Class for the custom scope.</body>
     <interfaces>IClass</interfaces>
   </generator:class_scope>
   <generator:handler xmi:id="_7uP2UI98EeK0xejX5iixaQ" base_Class="_0O-BUI98EeK0xejX5iixaQ"/>
+  <generator:class_scope xmi:id="_UBnbUI_EEeK0xejX5iixaQ" base_Class="_NSw9sI_EEeK0xejX5iixaQ" scopename="pyramid_buildout">
+    <stereotypes>pyramid:buildout</stereotypes>
+    <interfaces>IPackage</interfaces>
+  </generator:class_scope>
+  <generator:handler xmi:id="_nTZOAI_EEeK0xejX5iixaQ" base_Class="_j4ZGwI_EEeK0xejX5iixaQ"/>
+  <generator:class_scope xmi:id="_TiASkJFCEeKswagSEYVRHw" base_Class="_I3t6IJFCEeKswagSEYVRHw" scopename="view_function">
+    <stereotypes>pyramid:view</stereotypes>
+    <interfaces>IClass</interfaces>
+  </generator:class_scope>
+  <generator:class_scope xmi:id="_fO1tIJFCEeKswagSEYVRHw" base_Class="_Mq1mcJFCEeKswagSEYVRHw" scopename="view_method">
+    <stereotypes>pyramid:view</stereotypes>
+    <interfaces>IOperation</interfaces>
+  </generator:class_scope>
 </xmi:XMI>

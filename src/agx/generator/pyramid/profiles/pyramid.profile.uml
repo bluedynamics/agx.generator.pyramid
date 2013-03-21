@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_29Xa4FwvEeK2OIPViOliQA" name="pyramid" metaclassReference="_H6LhUFwwEeK2OIPViOliQA _NisB8FwwEeK2OIPViOliQA _NisB8VwwEeK2OIPViOliQA">
+<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_29Xa4FwvEeK2OIPViOliQA" name="pyramid" metaclassReference="_H6LhUFwwEeK2OIPViOliQA _NisB8FwwEeK2OIPViOliQA _NisB8VwwEeK2OIPViOliQA _hd2GgJDuEeKswagSEYVRHw">
   <eAnnotations xmi:id="_mRgsIFwwEeK2OIPViOliQA" source="http://www.eclipse.org/uml2/2.0.0/UML">
     <contents xmi:type="ecore:EPackage" xmi:id="_VE8vgH7MEeKISLySejkwCA" name="pyramid" nsURI="http:///schemas/pyramid/_VE6TQH7MEeKISLySejkwCA/4" nsPrefix="pyramid">
       <eAnnotations xmi:id="_VE-ksH7MEeKISLySejkwCA" source="PapyrusVersion">
@@ -68,6 +68,9 @@
   <elementImport xmi:id="_NisB8VwwEeK2OIPViOliQA" alias="Property">
     <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
   </elementImport>
+  <elementImport xmi:id="_hd2GgJDuEeKswagSEYVRHw" alias="Operation">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Operation"/>
+  </elementImport>
   <packageImport xmi:id="_vzxFgFwwEeK2OIPViOliQA">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
@@ -94,11 +97,22 @@
     <ownedAttribute xmi:id="_UfdXYH99EeKISLySejkwCA" name="permission">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
+    <ownedAttribute xmi:id="_jxVzIJDuEeKswagSEYVRHw" name="base_Operation" association="_jxWaMJDuEeKswagSEYVRHw">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Operation"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_HVgEMJFoEeKswagSEYVRHw" name="renderer" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ICnB0JFoEeKswagSEYVRHw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ICno4JFoEeKswagSEYVRHw" value="1"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_ICoP8JFoEeKswagSEYVRHw">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Extension" xmi:id="_0BDQwX7LEeKISLySejkwCA" name="E_view_Class1" memberEnd="_0BDQwn7LEeKISLySejkwCA _0BDQwH7LEeKISLySejkwCA">
     <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_0BDQwn7LEeKISLySejkwCA" name="extension_view" type="_yln0kH7LEeKISLySejkwCA" aggregation="composite" association="_0BDQwX7LEeKISLySejkwCA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Stereotype" xmi:id="_LYpCQH7MEeKISLySejkwCA" name="configuration">
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_LYpCQH7MEeKISLySejkwCA" name="configurator">
     <ownedAttribute xmi:id="_SmmdwH7MEeKISLySejkwCA" name="base_Package" association="_SmnE0H7MEeKISLySejkwCA">
       <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
     </ownedAttribute>
@@ -110,9 +124,17 @@
         <value xsi:nil="true"/>
       </defaultValue>
     </ownedAttribute>
+    <ownedAttribute xmi:id="_d0Q90JFIEeKswagSEYVRHw" name="static_views" visibility="public">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eQhcAJFIEeKswagSEYVRHw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eQiDEJFIEeKswagSEYVRHw" value="*"/>
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_eQjRMJFIEeKswagSEYVRHw">
+        <value xsi:nil="true"/>
+      </defaultValue>
+    </ownedAttribute>
   </packagedElement>
-  <packagedElement xmi:type="uml:Extension" xmi:id="_SmnE0H7MEeKISLySejkwCA" name="E_configuration_Package1" memberEnd="_SmnE0X7MEeKISLySejkwCA _SmmdwH7MEeKISLySejkwCA">
-    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_SmnE0X7MEeKISLySejkwCA" name="extension_configuration" type="_LYpCQH7MEeKISLySejkwCA" aggregation="composite" association="_SmnE0H7MEeKISLySejkwCA"/>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_SmnE0H7MEeKISLySejkwCA" name="E_configurator_Package1" memberEnd="_SmnE0X7MEeKISLySejkwCA _SmmdwH7MEeKISLySejkwCA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_SmnE0X7MEeKISLySejkwCA" name="extension_configurator" type="_LYpCQH7MEeKISLySejkwCA" aggregation="composite" association="_SmnE0H7MEeKISLySejkwCA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_djrjAH9TEeKISLySejkwCA" name="resource"/>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_nqNRgIDcEeK6Vp61kWFK7A" name="alchemy">
@@ -132,8 +154,8 @@
     <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_rkwmEoDdEeK6Vp61kWFK7A" name="extension_buildout" type="_qXwAYIDdEeK6Vp61kWFK7A" aggregation="composite" association="_rkwmEYDdEeK6Vp61kWFK7A"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_Np98YI96EeK0xejX5iixaQ" name="static_view">
-    <ownedAttribute xmi:id="_Pmsu0I96EeK0xejX5iixaQ" name="base_Class" association="_Pmsu0Y96EeK0xejX5iixaQ">
-      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    <ownedAttribute xmi:id="_Pmsu0I96EeK0xejX5iixaQ" name="base_Package" association="_Pmsu0Y96EeK0xejX5iixaQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_lPuFsI96EeK0xejX5iixaQ" name="path" visibility="public">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -144,7 +166,34 @@
       </defaultValue>
     </ownedAttribute>
   </packagedElement>
-  <packagedElement xmi:type="uml:Extension" xmi:id="_Pmsu0Y96EeK0xejX5iixaQ" name="E_static_view_Class1" memberEnd="_Pmsu0o96EeK0xejX5iixaQ _Pmsu0I96EeK0xejX5iixaQ">
+  <packagedElement xmi:type="uml:Extension" xmi:id="_Pmsu0Y96EeK0xejX5iixaQ" name="E_static_view_Package1" memberEnd="_Pmsu0o96EeK0xejX5iixaQ _Pmsu0I96EeK0xejX5iixaQ">
     <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_Pmsu0o96EeK0xejX5iixaQ" name="extension_static_view" type="_Np98YI96EeK0xejX5iixaQ" aggregation="composite" association="_Pmsu0Y96EeK0xejX5iixaQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_A90VYJDkEeKswagSEYVRHw" name="config_scan">
+    <ownedAttribute xmi:id="_FPRjgJDkEeKswagSEYVRHw" name="base_Package" association="_FPSKkJDkEeKswagSEYVRHw">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_FPSKkJDkEeKswagSEYVRHw" name="E_config_scan_Package1" memberEnd="_FPSKkZDkEeKswagSEYVRHw _FPRjgJDkEeKswagSEYVRHw">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_FPSKkZDkEeKswagSEYVRHw" name="extension_config_scan" type="_A90VYJDkEeKswagSEYVRHw" aggregation="composite" association="_FPSKkJDkEeKswagSEYVRHw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_406fIJDkEeKswagSEYVRHw" name="config_zcml">
+    <ownedAttribute xmi:id="_-QjBYJDkEeKswagSEYVRHw" name="base_Package" association="_-QjocJDkEeKswagSEYVRHw">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Package"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_-QjocJDkEeKswagSEYVRHw" name="E_config_zcml_Package1" memberEnd="_-QjocZDkEeKswagSEYVRHw _-QjBYJDkEeKswagSEYVRHw">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_-QjocZDkEeKswagSEYVRHw" name="extension_config_zcml" type="_406fIJDkEeKswagSEYVRHw" aggregation="composite" association="_-QjocJDkEeKswagSEYVRHw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_jxWaMJDuEeKswagSEYVRHw" name="E_view_Operation1" memberEnd="_jxWaMZDuEeKswagSEYVRHw _jxVzIJDuEeKswagSEYVRHw">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_jxWaMZDuEeKswagSEYVRHw" name="extension_view" type="_yln0kH7LEeKISLySejkwCA" aggregation="composite" association="_jxWaMJDuEeKswagSEYVRHw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_Eh6pcJFAEeKswagSEYVRHw" name="reify">
+    <ownedAttribute xmi:id="_GGQKAJFAEeKswagSEYVRHw" name="base_Operation" association="_GGQxEJFAEeKswagSEYVRHw">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Operation"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_GGQxEJFAEeKswagSEYVRHw" name="E_reify_Operation1" memberEnd="_GGQxEZFAEeKswagSEYVRHw _GGQKAJFAEeKswagSEYVRHw">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_GGQxEZFAEeKswagSEYVRHw" name="extension_reify" type="_Eh6pcJFAEeKswagSEYVRHw" aggregation="composite" association="_GGQxEJFAEeKswagSEYVRHw"/>
   </packagedElement>
 </uml:Profile>
