@@ -189,7 +189,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nq84aoDcEeK6Vp61kWFK7A"/>
     </children>
     <element xmi:type="uml:Stereotype" href="pyramid.profile.uml#_nqNRgIDcEeK6Vp61kWFK7A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nqx5QYDcEeK6Vp61kWFK7A" x="408" y="276"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nqx5QYDcEeK6Vp61kWFK7A" x="416" y="276"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_qXzDsIDdEeK6Vp61kWFK7A" type="1026">
     <children xmi:type="notation:DecorationNode" xmi:id="_qXzDsoDdEeK6Vp61kWFK7A" type="1034"/>
@@ -230,7 +230,7 @@
     <styles xmi:type="notation:TextStyle" xmi:id="_2PjdsYICEeK6Vp61kWFK7A"/>
     <styles xmi:type="notation:LineTypeStyle" xmi:id="_2PjdsoICEeK6Vp61kWFK7A"/>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2Pjds4ICEeK6Vp61kWFK7A" x="784" y="448" width="137" height="109"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2Pjds4ICEeK6Vp61kWFK7A" x="832" y="448" width="137" height="109"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_NqA_sI96EeK0xejX5iixaQ" type="1026">
     <children xmi:type="notation:DecorationNode" xmi:id="_NqA_so96EeK0xejX5iixaQ" type="1034"/>
@@ -257,7 +257,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NqA_vI96EeK0xejX5iixaQ"/>
     </children>
     <element xmi:type="uml:Stereotype" href="pyramid.profile.uml#_Np98YI96EeK0xejX5iixaQ"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NqA_sY96EeK0xejX5iixaQ" x="264" y="276"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NqA_sY96EeK0xejX5iixaQ" x="300" y="276"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_A9-GYJDkEeKswagSEYVRHw" type="1026">
     <children xmi:type="notation:DecorationNode" xmi:id="_A-K6sJDkEeKswagSEYVRHw" type="1034"/>
@@ -298,7 +298,7 @@
     <styles xmi:type="notation:TextStyle" xmi:id="_GocV4ZDkEeKswagSEYVRHw"/>
     <styles xmi:type="notation:LineTypeStyle" xmi:id="_GocV4pDkEeKswagSEYVRHw"/>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GocV45DkEeKswagSEYVRHw" x="480" y="448" width="153" height="109"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GocV45DkEeKswagSEYVRHw" x="528" y="448" width="153" height="109"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_408UUJDkEeKswagSEYVRHw" type="1026">
     <children xmi:type="notation:DecorationNode" xmi:id="_408UUpDkEeKswagSEYVRHw" type="1034"/>
@@ -339,7 +339,7 @@
     <styles xmi:type="notation:TextStyle" xmi:id="__YuxcZDkEeKswagSEYVRHw"/>
     <styles xmi:type="notation:LineTypeStyle" xmi:id="__YuxcpDkEeKswagSEYVRHw"/>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Yuxc5DkEeKswagSEYVRHw" x="652" y="448" width="117" height="109"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Yuxc5DkEeKswagSEYVRHw" x="696" y="448" width="117" height="109"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_-8czMJDmEeKswagSEYVRHw" type="Note" fontName="Lucida Grande" fontHeight="11" description="only for eggs" transparency="0" lineColor="0" lineWidth="1">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-8czNJDmEeKswagSEYVRHw" source="PapyrusCSSForceValue">
