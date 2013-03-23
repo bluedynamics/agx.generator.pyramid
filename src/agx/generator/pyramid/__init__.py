@@ -2,6 +2,8 @@
 import generator, \
        scope
 
+_bleeding_edge_ = True
+
 def register():
     """register this generator
     """
