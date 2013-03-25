@@ -32,6 +32,7 @@ setup(name="agx.generator.pyramid",
       install_requires=[
           'setuptools',
           ##code-section dependencies
+          'agx.generator.pyegg',
           ##/code-section dependencies
       ],
       extras_require=dict(
