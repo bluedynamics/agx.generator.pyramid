@@ -11,11 +11,11 @@
       <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0vqYslyQEeG1mLF7jMwarw" key="QualifiedNameDepth" value="1000"/>
     </eAnnotations>
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_3QDR0FyQEeG1mLF7jMwarw" source="Stereotype_Annotation">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y0hFsJPTEeKlf65yjIehdg" key="StereotypeWithQualifiedNameList" value=""/>
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y0hFsZPTEeKlf65yjIehdg" key="StereotypeList" value="pyegg::pyegg,pyramid::configuration"/>
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y0hswJPTEeKlf65yjIehdg" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y0hswZPTEeKlf65yjIehdg" key="PropStereoDisplay" value=""/>
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y0hswpPTEeKlf65yjIehdg" key="StereotypePropertyLocation" value="Compartment"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-wn8IJVkEeKiprBeZA9sgQ" key="StereotypeWithQualifiedNameList" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-wojMJVkEeKiprBeZA9sgQ" key="StereotypeList" value="pyegg::pyegg,pyramid::config_scan,pyramid::configuration"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-wojMZVkEeKiprBeZA9sgQ" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-wojMpVkEeKiprBeZA9sgQ" key="PropStereoDisplay" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-wojM5VkEeKiprBeZA9sgQ" key="StereotypePropertyLocation" value="Compartment"/>
     </eAnnotations>
     <children xmi:type="notation:DecorationNode" xmi:id="_0vrm0FyQEeG1mLF7jMwarw" type="5026"/>
     <children xmi:type="notation:DecorationNode" xmi:id="_0vsN4FyQEeG1mLF7jMwarw" type="7016">
@@ -36,12 +36,70 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NFgZI5PHEeKlf65yjIehdg"/>
         </children>
         <element xmi:type="uml:Package" href="model.uml#_NDQ9cJPHEeKlf65yjIehdg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NFNeMZPHEeKlf65yjIehdg" x="299" y="11" width="256" height="73"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NFNeMZPHEeKlf65yjIehdg" x="459" y="11" width="256" height="73"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_2Fu2IJVEEeKiprBeZA9sgQ" type="3009">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OglacJVQEeKiprBeZA9sgQ" source="Stereotype_Annotation">
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dykKMJVlEeKiprBeZA9sgQ" key="StereotypeWithQualifiedNameList" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dykKMZVlEeKiprBeZA9sgQ" key="StereotypeList" value="pyegg::pymodule,pyegg::autoimport,pyramid::config_scan"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dykKMpVlEeKiprBeZA9sgQ" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dykxQJVlEeKiprBeZA9sgQ" key="PropStereoDisplay" value=""/>
+          <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dykxQZVlEeKiprBeZA9sgQ" key="StereotypePropertyLocation" value="Compartment"/>
+        </eAnnotations>
+        <children xmi:type="notation:DecorationNode" xmi:id="_2Fu2IpVEEeKiprBeZA9sgQ" type="5017"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_2Fu2I5VEEeKiprBeZA9sgQ" type="7010">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_2Fu2JpVEEeKiprBeZA9sgQ" source="PapyrusCSSForceValue">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_2Fu2J5VEEeKiprBeZA9sgQ" key="showTitle" value="true"/>
+          </eAnnotations>
+          <children xmi:type="notation:Shape" xmi:id="_5JStwJVEEeKiprBeZA9sgQ" type="3010">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Zvu0cJVFEeKiprBeZA9sgQ" source="Stereotype_Annotation">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dQF50JVmEeKiprBeZA9sgQ" key="StereotypeWithQualifiedNameList" value=""/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dQGg4JVmEeKiprBeZA9sgQ" key="StereotypeList" value="pyramid::view"/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dQGg4ZVmEeKiprBeZA9sgQ" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dQGg4pVmEeKiprBeZA9sgQ" key="PropStereoDisplay" value=""/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dQGg45VmEeKiprBeZA9sgQ" key="StereotypePropertyLocation" value="Compartment"/>
+            </eAnnotations>
+            <children xmi:type="notation:DecorationNode" xmi:id="_5JTU0JVEEeKiprBeZA9sgQ" type="5014"/>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_5JTU0ZVEEeKiprBeZA9sgQ" type="7011">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5JTU4JVEEeKiprBeZA9sgQ" source="PapyrusCSSForceValue">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_5JT74JVEEeKiprBeZA9sgQ" key="showTitle" value="true"/>
+              </eAnnotations>
+              <styles xmi:type="notation:TitleStyle" xmi:id="_5JTU0pVEEeKiprBeZA9sgQ"/>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_5JTU05VEEeKiprBeZA9sgQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_5JTU1JVEEeKiprBeZA9sgQ"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5JTU1ZVEEeKiprBeZA9sgQ"/>
+            </children>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_5JTU1pVEEeKiprBeZA9sgQ" type="7012">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5JT74ZVEEeKiprBeZA9sgQ" source="PapyrusCSSForceValue">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_5JT74pVEEeKiprBeZA9sgQ" key="showTitle" value="true"/>
+              </eAnnotations>
+              <styles xmi:type="notation:TitleStyle" xmi:id="_5JTU15VEEeKiprBeZA9sgQ"/>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_5JTU2JVEEeKiprBeZA9sgQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_5JTU2ZVEEeKiprBeZA9sgQ"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5JTU2pVEEeKiprBeZA9sgQ"/>
+            </children>
+            <children xmi:type="notation:BasicCompartment" xmi:id="_5JTU25VEEeKiprBeZA9sgQ" type="7013">
+              <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5JT745VEEeKiprBeZA9sgQ" source="PapyrusCSSForceValue">
+                <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_5JT75JVEEeKiprBeZA9sgQ" key="showTitle" value="true"/>
+              </eAnnotations>
+              <styles xmi:type="notation:TitleStyle" xmi:id="_5JTU3JVEEeKiprBeZA9sgQ"/>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_5JTU3ZVEEeKiprBeZA9sgQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_5JTU3pVEEeKiprBeZA9sgQ"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5JTU35VEEeKiprBeZA9sgQ"/>
+            </children>
+            <element xmi:type="uml:Class" href="model.uml#_5JRfoJVEEeKiprBeZA9sgQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5JStwZVEEeKiprBeZA9sgQ" x="15" y="12" width="159" height="30"/>
+          </children>
+          <styles xmi:type="notation:TitleStyle" xmi:id="_2Fu2JJVEEeKiprBeZA9sgQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2Fu2JZVEEeKiprBeZA9sgQ"/>
+        </children>
+        <element xmi:type="uml:Package" href="model.uml#_2FtoAJVEEeKiprBeZA9sgQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2Fu2IZVEEeKiprBeZA9sgQ" x="243" y="135" width="471" height="317"/>
       </children>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0vsN4VyQEeG1mLF7jMwarw"/>
     </children>
     <element xmi:type="uml:Package" href="model.uml#_0vR-MFyQEeG1mLF7jMwarw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0vfZkFyQEeG1mLF7jMwarw" x="40" y="40" width="577" height="365"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0vfZkFyQEeG1mLF7jMwarw" x="40" y="40" width="733" height="521"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_vl7ewVyQEeG1mLF7jMwarw"/>
   <element xmi:type="uml:Model" href="model.uml#_rxHwYFyQEeG1mLF7jMwarw"/>

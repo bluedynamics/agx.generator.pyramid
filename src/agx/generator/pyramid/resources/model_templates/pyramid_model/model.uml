@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pyegg="http:///schemas/pyegg/_FjJE0HtmEeKvC-Xbutnx2A/28" xmlns:pyramid="http:///schemas/pyramid/_nxKtAJPTEeKlf65yjIehdg/7" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/pyegg/_FjJE0HtmEeKvC-Xbutnx2A/28 uml_profiles/pyegg.profile.uml#_FjJr4HtmEeKvC-Xbutnx2A http:///schemas/pyramid/_nxKtAJPTEeKlf65yjIehdg/7 uml_profiles/pyramid.profile.uml#_nxLUEJPTEeKlf65yjIehdg">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pyegg="http:///schemas/pyegg/_FjJE0HtmEeKvC-Xbutnx2A/28" xmlns:pyramid="http:///schemas/pyramid/_Ez1fYJTvEeKlf65yjIehdg/8" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/pyegg/_FjJE0HtmEeKvC-Xbutnx2A/28 uml_profiles/pyegg.profile.uml#_FjJr4HtmEeKvC-Xbutnx2A http:///schemas/pyramid/_Ez1fYJTvEeKlf65yjIehdg/8 uml_profiles/pyramid.profile.uml#_Ez2GcJTvEeKlf65yjIehdg">
   <uml:Model xmi:id="_rxHwYFyQEeG1mLF7jMwarw" name="model">
-    <packagedElement xmi:type="uml:Package" xmi:id="_0vR-MFyQEeG1mLF7jMwarw" name="agx.example.pyramid">
-      <packagedElement xmi:type="uml:Package" xmi:id="_NDQ9cJPHEeKlf65yjIehdg" name="static"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_0vR-MFyQEeG1mLF7jMwarw" name="pyramidonal">
+      <packagedElement xmi:type="uml:Package" xmi:id="_NDQ9cJPHEeKlf65yjIehdg" name="static_resources"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_2FtoAJVEEeKiprBeZA9sgQ" name="views">
+        <packagedElement xmi:type="uml:Class" xmi:id="_5JRfoJVEEeKiprBeZA9sgQ" name="hello_world"/>
+      </packagedElement>
       <profileApplication xmi:id="_nuwlIJPGEeKlf65yjIehdg">
         <eAnnotations xmi:id="_nvPGQJPGEeKlf65yjIehdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-          <references xmi:type="ecore:EPackage" href="uml_profiles/pyramid.profile.uml#_nxLUEJPTEeKlf65yjIehdg"/>
+          <references xmi:type="ecore:EPackage" href="uml_profiles/pyramid.profile.uml#_Ez2GcJTvEeKlf65yjIehdg"/>
         </eAnnotations>
         <appliedProfile href="uml_profiles/pyramid.profile.uml#_29Xa4FwvEeK2OIPViOliQA"/>
       </profileApplication>
@@ -18,6 +21,11 @@
     </profileApplication>
   </uml:Model>
   <pyegg:pyegg xmi:id="_3P7WAFyQEeG1mLF7jMwarw" base_Package="_0vR-MFyQEeG1mLF7jMwarw"/>
-  <pyramid:static_view xmi:id="_hDiN0JPHEeKlf65yjIehdg" base_Package="_NDQ9cJPHEeKlf65yjIehdg" path="static_resources"/>
-  <pyramid:configuration xmi:id="_yz_hQJPTEeKlf65yjIehdg" base_Package="_0vR-MFyQEeG1mLF7jMwarw"/>
+  <pyramid:static_view xmi:id="_hDiN0JPHEeKlf65yjIehdg" base_Package="_NDQ9cJPHEeKlf65yjIehdg" url="static" from_template="pyramid_standard"/>
+  <pyramid:config_scan xmi:id="_zaMLoJTxEeKiprBeZA9sgQ" base_Package="_0vR-MFyQEeG1mLF7jMwarw"/>
+  <pyramid:view xmi:id="_Zuh6kJVFEeKiprBeZA9sgQ" base_Class="_5JRfoJVEEeKiprBeZA9sgQ" route_name="hello" renderer="schas.pt"/>
+  <pyegg:pymodule xmi:id="_OftQsJVQEeKiprBeZA9sgQ" base_Package="_2FtoAJVEEeKiprBeZA9sgQ"/>
+  <pyegg:autoimport xmi:id="_Uz2gkJVWEeKiprBeZA9sgQ" base_Package="_2FtoAJVEEeKiprBeZA9sgQ"/>
+  <pyramid:configuration xmi:id="_-vqS0JVkEeKiprBeZA9sgQ" base_Package="_0vR-MFyQEeG1mLF7jMwarw"/>
+  <pyramid:config_scan xmi:id="_dx3moJVlEeKiprBeZA9sgQ" base_Package="_2FtoAJVEEeKiprBeZA9sgQ"/>
 </xmi:XMI>

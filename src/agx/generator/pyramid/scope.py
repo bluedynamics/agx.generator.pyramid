@@ -30,13 +30,6 @@ class pyramid_static_view(Scope):
 
 registerScope('pyramid_static_view', 'uml2fs', [IClass], pyramid_static_view)
 
-class pyramid_view(Scope):
-
-    def __call__(self, node):
-        return node.stereotype('pyramid:view') is not None
-
-registerScope('pyramid_view', 'uml2fs', [IClass], pyramid_view)
-
 class pyramid_buildout(Scope):
 
     def __call__(self, node):
