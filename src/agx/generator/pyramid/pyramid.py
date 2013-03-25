@@ -6,6 +6,5 @@ from agx.core.interfaces import IProfileLocation
 class pyramid(object):
 
     implements(IProfileLocation)
-
     name = 'pyramid.profile.uml'
     package = agx.generator.pyramid

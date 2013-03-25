@@ -1,0 +1,4 @@
+#---AGX Properties---
+#Sat Mar 23 17:07:00 CET 2013
+profiles=pyegg;pyramid
+target=.

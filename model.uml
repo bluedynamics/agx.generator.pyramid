@@ -24,7 +24,7 @@
         <packagedElement xmi:type="uml:Dependency" xmi:id="_tNV5AI95EeK0xejX5iixaQ" name="" client="_e5cVkI95EeK0xejX5iixaQ" supplier="_EGx54AsrEeKGfoivsLRX3g"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_Ln3FQI97EeK0xejX5iixaQ" clientDependency="_UM62kI97EeK0xejX5iixaQ _VXPUoI97EeK0xejX5iixaQ" name="generate_static_view"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_UM62kI97EeK0xejX5iixaQ" name="" client="_Ln3FQI97EeK0xejX5iixaQ" supplier="_vmly4I96EeK0xejX5iixaQ"/>
-        <packagedElement xmi:type="uml:Dependency" xmi:id="_VXPUoI97EeK0xejX5iixaQ" name="" client="_Ln3FQI97EeK0xejX5iixaQ" supplier="_NHPDMAsqEeKGfoivsLRX3g"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_VXPUoI97EeK0xejX5iixaQ" name="" client="_Ln3FQI97EeK0xejX5iixaQ" supplier="_WqdF4AsqEeKGfoivsLRX3g"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_qX7gMI97EeK0xejX5iixaQ" clientDependency="_zEwGYI97EeK0xejX5iixaQ _0AYoMI97EeK0xejX5iixaQ" name="generate_docs"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_zEwGYI97EeK0xejX5iixaQ" name="" client="_qX7gMI97EeK0xejX5iixaQ" supplier="_KGZEwI92EeK0xejX5iixaQ"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_0AYoMI97EeK0xejX5iixaQ" name="" client="_qX7gMI97EeK0xejX5iixaQ" supplier="_EGx54AsrEeKGfoivsLRX3g"/>
@@ -34,6 +34,9 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_j4ZGwI_EEeK0xejX5iixaQ" clientDependency="_q9xOAI_EEeK0xejX5iixaQ _sVgdAI_EEeK0xejX5iixaQ" name="generate_buildout"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_q9xOAI_EEeK0xejX5iixaQ" name="" client="_j4ZGwI_EEeK0xejX5iixaQ" supplier="_NSw9sI_EEeK0xejX5iixaQ"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_sVgdAI_EEeK0xejX5iixaQ" name="" client="_j4ZGwI_EEeK0xejX5iixaQ" supplier="_EGx54AsrEeKGfoivsLRX3g"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_Xl45EJUDEeKlf65yjIehdg" clientDependency="_eZRRYJUDEeKlf65yjIehdg _gdwRoJUDEeKlf65yjIehdg" name="mark_config_scan"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_eZRRYJUDEeKlf65yjIehdg" name="Dependency1" client="_Xl45EJUDEeKlf65yjIehdg" supplier="_yDrb8JUCEeKlf65yjIehdg"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_gdwRoJUDEeKlf65yjIehdg" name="Dependency2" client="_Xl45EJUDEeKlf65yjIehdg" supplier="_WqdF4AsqEeKGfoivsLRX3g"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_Srs_EAsvEeKbFrhzZvXz8w" name="scope">
         <packagedElement xmi:type="uml:Class" xmi:id="_Ic1AQBRDEeKcC97Hb5tvFQ" name="pyclass"/>
@@ -44,6 +47,7 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_NSw9sI_EEeK0xejX5iixaQ" name="pyramid_buildout"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_I3t6IJFCEeKswagSEYVRHw" name="view_function"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_Mq1mcJFCEeKswagSEYVRHw" name="view_method"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_yDrb8JUCEeKlf65yjIehdg" name="pyramid_config_scan"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_kzJEgA5vEeKgj7WFwZrcAg" name="" client="_W0v3AA5vEeKgj7WFwZrcAg" supplier="_WqdF4AsqEeKGfoivsLRX3g"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_W0v3AA5vEeKgj7WFwZrcAg" clientDependency="_kzJEgA5vEeKgj7WFwZrcAg" name="mygenerator"/>
@@ -91,7 +95,7 @@
   <pyegg:stub xmi:id="_7vBogI9zEeK0xejX5iixaQ" base_Class="_oWOAwI9zEeK0xejX5iixaQ"/>
   <generator:class_scope xmi:id="_PMh4II92EeK0xejX5iixaQ" base_Class="_KGZEwI92EeK0xejX5iixaQ" scopename="pyramid_configuration">
     <stereotypes>pyramid:configuration</stereotypes>
-    <stereotypes>pyegg:pyegg</stereotypes>
+    <interfaces>IPackage</interfaces>
   </generator:class_scope>
   <generator:handler xmi:id="_XGj6AI93EeK0xejX5iixaQ" base_Class="_0Ds0MI92EeK0xejX5iixaQ"/>
   <generator:handler xmi:id="_gmPggI93EeK0xejX5iixaQ" base_Class="_Yd-Y4I93EeK0xejX5iixaQ"/>
@@ -120,4 +124,9 @@
     <stereotypes>pyramid:view</stereotypes>
     <interfaces>IOperation</interfaces>
   </generator:class_scope>
+  <generator:class_scope xmi:id="_3gbYgJUCEeKlf65yjIehdg" base_Class="_yDrb8JUCEeKlf65yjIehdg" scopename="pyramid_config_scan">
+    <stereotypes>pyramid:config_scan</stereotypes>
+    <interfaces>IPackage</interfaces>
+  </generator:class_scope>
+  <generator:handler xmi:id="_yiUqUJUDEeKlf65yjIehdg" base_Class="_Xl45EJUDEeKlf65yjIehdg"/>
 </xmi:XMI>
