@@ -30,7 +30,13 @@ from node.ext.python.interfaces import IModule
 from node.ext.python.utils import Imports
 from node.ext.python import Function, Block, Decorator
 from node.ext.uml.utils import TaggedValues
+from node.ext.template import JinjaTemplate, DTMLTemplate
+from node.ext.directory import Directory
 import agx
+
+def templatepath(name):
+    return os.path.join(os.path.dirname(__file__), 'resources','templates','%s' % name)
+
 
 @handler('generate_configuration', 'uml2fs', 'semanticsgenerator',
          'pyramid_configuration')
@@ -148,22 +154,56 @@ def generate_docs(self, source, target):
 def generate_view_function(self, source, target):
     tgv=TaggedValues(source)
     func=read_target_node(source,target.target)
+    module=func.parent
+    imps=Imports(func.parent)
+    
+    #if view function is empty, make a default code displaying info
     if not func.blocks():
         func.insertfirst(Block("return Response('this is the stub for view %s')" % source.name))
-        imps=Imports(func.parent)
         imps.set('pyramid.response','Response')
         
+    #name of view
     route_name=tgv.direct('route_name','pyramid:view',source.name)
     if not func.decorators('view_config'):
         func.insertfirst(Decorator('view_config'))
         dec=func.decorators('view_config')[0]
         dec.kwargs['name']="'%s'" % route_name
     
-    imps=Imports(func.parent)
+    #necessary imports
     imps.set('pyramid.view','view_config')
 
+    #the request argument
     if not 'request' in func.args:
         func.args.append('request')
+        
+    #create the page template
+    template=tgv.direct('template','pyramid:view', None)
+    #template from which the template file will be generated
+    from_template=tgv.direct('from_template','pyramid:view',None)
+    if from_template and from_template!='none' and not template:
+        template=source.name+'.pt'
+    if template:
+        splitted=template.split('/')
+        fname=splitted[-1]
+        tdir=module.parent
+        if len(splitted)>1: #we have to check/create containing dirs
+            for dname in splitted[:-1]:
+                if not tdir.has_key(dname):
+                    #lets create it
+                    new=Directory(dname)
+                    tdir[dname]=new
+                    tdir=tdir
+    
+                tdir=tdir[dname]
+
+        #get the template template name
+        if from_template and from_template!='none':
+            templ=DTMLTemplate()
+            templ.template=templatepath(from_template)+'.dtml'
+            tdir[fname]=templ
+
+        
+    
 
 @handler('generate_buildout', 'uml2fs', 'semanticsgenerator', 'pyramid_buildout')
 def generate_buildout(self, source, target):
