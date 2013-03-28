@@ -1,0 +1,37 @@
+[buildout]
+extends =
+    versions.cfg
+
+socket-timeout = 3
+how-picked-versions = true
+newest = false
+
+allow-hosts =
+    *.python.org
+    *.sourceforge.net
+    github.com
+
+versions = versions
+develop = .
+extensions =
+    buildout.threatlevel
+
+eggs-directory = eggs
+#activate this if you want to use a cache dir, you will have to create the dir
+#download-cache = ${buildout:directory}/downloads
+
+parts =
+    pyramid
+
+# to thing about for the future, put application under src
+
+[pyramid]
+recipe = zc.recipe.egg
+dependent-scripts = true
+eggs =
+    pyramid
+    nose
+    WebTest
+    {{package}}
+
+interpreter = py

@@ -35,8 +35,7 @@ from node.ext.directory import Directory
 import agx
 
 def templatepath(name):
-    return os.path.join(os.path.dirname(__file__), 'resources','templates','%s' % name)
-
+    return os.path.join(os.path.dirname(__file__), 'resources', 'templates', '%s' % name)
 
 @handler('generate_configuration', 'uml2fs', 'semanticsgenerator',
          'pyramid_configuration')
@@ -71,21 +70,21 @@ def generate_configuration(self, source, target):
     # do the configurator stuff
     mainblock = main.blocks('Configurator')[0]
     
-    #insert app stuff at end of block
-    mainblock.insertlineafter("app = config.make_wsgi_app()" ,None, ifnotpresent=True)
-    mainblock.insertlineafter("return app" ,'make_wsgi_app', ifnotpresent=True)
+    # insert app stuff at end of block
+    mainblock.insertlineafter("app = config.make_wsgi_app()" , None, ifnotpresent=True)
+    mainblock.insertlineafter("return app" , 'make_wsgi_app', ifnotpresent=True)
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-    #static views
+    # static views
     for sv in tok.static_views:
         mainblock.insertlineafter('''config.add_static_view('%s', '%s/',%s)''' % \
                 (sv[0], sv[1], sv[2]), 'Configurator', ifnotpresent=True)
         
-    #scans
+    # scans
     for scan in tok.scans:
         if scan:
-            mainblock.insertlineafter("config.scan('%s')" % scan,'add_static_view', ifnotpresent=True)
+            mainblock.insertlineafter("config.scan('%s')" % scan, 'add_static_view', ifnotpresent=True)
         else:
-            mainblock.insertlineafter("config.scan()" ,'add_static_view', ifnotpresent=True)
+            mainblock.insertlineafter("config.scan()" , 'add_static_view', ifnotpresent=True)
             
             
     if not module.blocks('__main__'):
@@ -138,7 +137,7 @@ def generate_static_view(self, source, target):
 @handler('mark_config_scan', 'uml2fs', 'connectorgenerator',
          'pyramid_config_scan')
 def mark_config_scan(self, source, target):
-    tok=token('pyramid_configuration',True,scans=[])
+    tok = token('pyramid_configuration', True, scans=[])
     if source.stereotype('pyegg:pyegg'):
         tok.scans.append('')
     else:
@@ -152,62 +151,94 @@ def generate_docs(self, source, target):
 @handler('generate_view_function', 'uml2fs', 'connectorgenerator',
          'view_function')
 def generate_view_function(self, source, target):
-    tgv=TaggedValues(source)
-    func=read_target_node(source,target.target)
-    module=func.parent
-    imps=Imports(func.parent)
+    tgv = TaggedValues(source)
+    func = read_target_node(source, target.target)
+    module = func.parent
+    imps = Imports(func.parent)
+    funccode = "return Response('this is the stub for view %s')" % source.name
     
-    #if view function is empty, make a default code displaying info
-    if not func.blocks():
-        func.insertfirst(Block("return Response('this is the stub for view %s')" % source.name))
-        imps.set('pyramid.response','Response')
-        
-    #name of view
-    route_name=tgv.direct('route_name','pyramid:view',source.name)
+    # name of view
+    route_name = tgv.direct('route_name', 'pyramid:view', source.name)
     if not func.decorators('view_config'):
         func.insertfirst(Decorator('view_config'))
-        dec=func.decorators('view_config')[0]
-        dec.kwargs['name']="'%s'" % route_name
     
-    #necessary imports
-    imps.set('pyramid.view','view_config')
-
-    #the request argument
+    dec = func.decorators('view_config')[0]
+    dec.kwargs['name'] = "'%s'" % route_name
+    
+    # necessary imports
+    imps.set('pyramid.view', 'view_config')
+    
+    # the request argument
     if not 'request' in func.args:
         func.args.append('request')
         
-    #create the page template
-    template=tgv.direct('template','pyramid:view', None)
-    #template from which the template file will be generated
-    from_template=tgv.direct('from_template','pyramid:view',None)
-    if from_template and from_template!='none' and not template:
-        template=source.name+'.pt'
+    # create the page template
+    template = tgv.direct('template', 'pyramid:view', None)
+    # template from which the template file will be generated
+    from_template = tgv.direct('from_template', 'pyramid:view', None)
+    if from_template and from_template != 'none' and not template:
+        template = source.name + '.pt'
     if template:
-        splitted=template.split('/')
-        fname=splitted[-1]
-        tdir=module.parent
-        if len(splitted)>1: #we have to check/create containing dirs
+        splitted = template.split('/')
+        fname = splitted[-1]
+        tdir = module.parent
+        if len(splitted) > 1:  # we have to check/create containing dirs
             for dname in splitted[:-1]:
                 if not tdir.has_key(dname):
-                    #lets create it
-                    new=Directory(dname)
-                    tdir[dname]=new
-                    tdir=tdir
+                    # lets create it
+                    new = Directory(dname)
+                    tdir[dname] = new
+                    tdir = tdir
     
-                tdir=tdir[dname]
-
-        #get the template template name
-        if from_template and from_template!='none':
-            templ=DTMLTemplate()
-            templ.template=templatepath(from_template)+'.dtml'
-            tdir[fname]=templ
-
+                tdir = tdir[dname]
+    
+        # set the renderer parameter based on the template name
+        dec.kwargs['renderer'] = "'%s'" % template
         
+        # get the template-template name
+        if from_template and from_template != 'none':
+            # and create the pagetemplate from the template-template
+            templ = DTMLTemplate()
+            tdir.factories[fname] = JinjaTemplate
+            templ.template = templatepath(from_template) + '.dtml'
+            tdir[fname] = templ
+            
+        # generate default function body
+        funccode = '''return {"page_title": "%s"}''' % source.name
     
+    # if given set the renderer parameter
+    renderer = tgv.direct('renderer', 'pyramid:view', None)
+    if renderer and not dec.kwargs.get('renderer'):
+        dec.kwargs['renderer'] = "'%s'" % renderer
+        
+    # if view function is empty, make a default code displaying info
+    if not func.blocks():
+        func.insertfirst(Block(funccode))
+        imps.set('pyramid.response', 'Response')
 
-@handler('generate_buildout', 'uml2fs', 'semanticsgenerator', 'pyramid_buildout')
+@handler('generate_buildout', 'uml2fs', 'hierarchygenerator', 'pyramid_buildout',
+         order=11)
 def generate_buildout(self, source, target):
-    print NotImplementedError("stub generated by AGX.")
+    egg = target.anchor
+    
+    egg.factories['buildout.cfg'] = JinjaTemplate
+    egg.factories['versions.cfg'] = JinjaTemplate
+    egg.factories['bootstrap.py'] = JinjaTemplate
+
+    if 'versions.cfg' not in egg:
+        egg['versions.cfg']=JinjaTemplate()
+        egg['versions.cfg'].template= templatepath('versions.cfg.jinja')
+        egg['versions.cfg'].params={}
+        
+    if 'buildout.cfg' not in egg.keys():
+        egg['buildout.cfg']=JinjaTemplate()
+        egg['buildout.cfg'].template= templatepath('buildout.cfg.jinja')
+        egg['buildout.cfg'].params={'package':source.name}
+        
+    if 'bootstrap.py' not in egg.keys():
+        egg['bootstrap.py']=JinjaTemplate()
+        egg['bootstrap.py'].template= templatepath('bootstrap.py.jinja')
+        egg['bootstrap.py'].params={}
 
 @handler('mark_view_as_function', 'uml2fs', 'hierarchygenerator',
          'view_function', order=8)

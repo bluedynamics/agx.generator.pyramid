@@ -32,11 +32,11 @@
         <packagedElement xmi:type="uml:Dependency" xmi:id="_GjOb0I99EeK0xejX5iixaQ" name="" client="_0O-BUI98EeK0xejX5iixaQ" supplier="_WqdF4AsqEeKGfoivsLRX3g"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_j4ZGwI_EEeK0xejX5iixaQ" clientDependency="_q9xOAI_EEeK0xejX5iixaQ _sVgdAI_EEeK0xejX5iixaQ" name="generate_buildout"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_q9xOAI_EEeK0xejX5iixaQ" name="" client="_j4ZGwI_EEeK0xejX5iixaQ" supplier="_NSw9sI_EEeK0xejX5iixaQ"/>
-        <packagedElement xmi:type="uml:Dependency" xmi:id="_sVgdAI_EEeK0xejX5iixaQ" name="" client="_j4ZGwI_EEeK0xejX5iixaQ" supplier="_EGx54AsrEeKGfoivsLRX3g"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_sVgdAI_EEeK0xejX5iixaQ" name="" client="_j4ZGwI_EEeK0xejX5iixaQ" supplier="_NHPDMAsqEeKGfoivsLRX3g"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_Xl45EJUDEeKlf65yjIehdg" clientDependency="_eZRRYJUDEeKlf65yjIehdg _gdwRoJUDEeKlf65yjIehdg" name="mark_config_scan"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_eZRRYJUDEeKlf65yjIehdg" name="" client="_Xl45EJUDEeKlf65yjIehdg" supplier="_yDrb8JUCEeKlf65yjIehdg"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_gdwRoJUDEeKlf65yjIehdg" name="" client="_Xl45EJUDEeKlf65yjIehdg" supplier="_WqdF4AsqEeKGfoivsLRX3g"/>
-        <packagedElement xmi:type="uml:Dependency" xmi:id="_u4QzwJVNEeKlf65yjIehdg" name="Dependency1" client="_0O-BUI98EeK0xejX5iixaQ" supplier="_I3t6IJFCEeKswagSEYVRHw"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_u4QzwJVNEeKlf65yjIehdg" name="" client="_0O-BUI98EeK0xejX5iixaQ" supplier="_I3t6IJFCEeKswagSEYVRHw"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_jDbo4JVPEeKlf65yjIehdg" clientDependency="_qzsgMJVPEeKlf65yjIehdg _sLyUgJVPEeKlf65yjIehdg" name="mark_view_as_function"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_qzsgMJVPEeKlf65yjIehdg" name="" client="_jDbo4JVPEeKlf65yjIehdg" supplier="_I3t6IJFCEeKswagSEYVRHw"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_sLyUgJVPEeKlf65yjIehdg" name="" client="_jDbo4JVPEeKlf65yjIehdg" supplier="_NHPDMAsqEeKGfoivsLRX3g"/>
@@ -113,7 +113,7 @@
     <stereotypes>pyramid:buildout</stereotypes>
     <interfaces>IPackage</interfaces>
   </generator:class_scope>
-  <generator:handler xmi:id="_nTZOAI_EEeK0xejX5iixaQ" base_Class="_j4ZGwI_EEeK0xejX5iixaQ"/>
+  <generator:handler xmi:id="_nTZOAI_EEeK0xejX5iixaQ" base_Class="_j4ZGwI_EEeK0xejX5iixaQ" order="11"/>
   <generator:class_scope xmi:id="_TiASkJFCEeKswagSEYVRHw" base_Class="_I3t6IJFCEeKswagSEYVRHw" scopename="view_function">
     <stereotypes>pyramid:view</stereotypes>
     <interfaces>IClass</interfaces>
