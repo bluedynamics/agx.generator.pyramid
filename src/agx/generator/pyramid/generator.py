@@ -59,6 +59,7 @@ def generate_configuration(self, source, target):
     # create a function main if not present
     if 'main' not in [f.functionname for f in module.functions()]:
         func = Function('main')
+        func.args=['global_config','**settings']
         module.insertafterimports(func)
     
     main = module.functions(name='main')[0]
@@ -97,10 +98,26 @@ def generate_configuration(self, source, target):
 def handle_setup(self, source, target):
     print "handle_setup"
 
-@handler('generate_ini_files', 'uml2fs', 'semanticsgenerator',
-         'pyramid_configuration')
+@handler('generate_ini_files', 'uml2fs', 'hierarchygenerator',
+         'pyramid_configuration', order=11)
 def generate_ini_files(self, source, target):
     print "generate_ini_files"
+    egg = target.anchor
+    
+    for name in ['development.ini']:
+        egg.factories[name] = JinjaTemplate
+            
+        if name not in egg.keys():
+            egg[name]=JinjaTemplate()
+            egg[name].template= templatepath(name+'.jinja')
+            egg[name].params={'package':source.name,
+                                        'host':'0.0.0.0',
+                                        'port':'8080'}
+    
+    ept = """[paste.app_factory]
+        main = %s:main"""
+    tok = token('entry_points', True, defs=[])
+    tok.defs.append(ept % dotted_path(source))
 
 @handler('generate_static_view', 'uml2fs', 'connectorgenerator',
          'pyramid_static_view')
@@ -141,7 +158,7 @@ def mark_config_scan(self, source, target):
     if source.stereotype('pyegg:pyegg'):
         tok.scans.append('')
     else:
-        tok.scans.append(source.name)
+        tok.scans.append('.'+source.name)
 
 @handler('generate_docs', 'uml2fs', 'semanticsgenerator',
          'pyramid_configuration')
@@ -178,6 +195,8 @@ def generate_view_function(self, source, target):
     from_template = tgv.direct('from_template', 'pyramid:view', None)
     if from_template and from_template != 'none' and not template:
         template = source.name + '.pt'
+        
+    print 'template name:',template, from_template
     if template:
         splitted = template.split('/')
         fname = splitted[-1]
@@ -197,6 +216,7 @@ def generate_view_function(self, source, target):
         
         # get the template-template name
         if from_template and from_template != 'none':
+            print 'getting template template:', from_template
             # and create the pagetemplate from the template-template
             templ = DTMLTemplate()
             tdir.factories[fname] = JinjaTemplate
@@ -224,7 +244,7 @@ def generate_buildout(self, source, target):
     egg.factories['buildout.cfg'] = JinjaTemplate
     egg.factories['versions.cfg'] = JinjaTemplate
     egg.factories['bootstrap.py'] = JinjaTemplate
-
+    
     if 'versions.cfg' not in egg:
         egg['versions.cfg']=JinjaTemplate()
         egg['versions.cfg'].template= templatepath('versions.cfg.jinja')

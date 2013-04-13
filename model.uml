@@ -21,7 +21,7 @@
         <packagedElement xmi:type="uml:Dependency" xmi:id="_nXys0I93EeK0xejX5iixaQ" name="" client="_Yd-Y4I93EeK0xejX5iixaQ" supplier="_EGx54AsrEeKGfoivsLRX3g"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_e5cVkI95EeK0xejX5iixaQ" clientDependency="_sRpFwI95EeK0xejX5iixaQ _tNV5AI95EeK0xejX5iixaQ" name="generate_ini_files"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_sRpFwI95EeK0xejX5iixaQ" name="" client="_e5cVkI95EeK0xejX5iixaQ" supplier="_KGZEwI92EeK0xejX5iixaQ"/>
-        <packagedElement xmi:type="uml:Dependency" xmi:id="_tNV5AI95EeK0xejX5iixaQ" name="" client="_e5cVkI95EeK0xejX5iixaQ" supplier="_EGx54AsrEeKGfoivsLRX3g"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_tNV5AI95EeK0xejX5iixaQ" name="" client="_e5cVkI95EeK0xejX5iixaQ" supplier="_NHPDMAsqEeKGfoivsLRX3g"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_Ln3FQI97EeK0xejX5iixaQ" clientDependency="_UM62kI97EeK0xejX5iixaQ _VXPUoI97EeK0xejX5iixaQ" name="generate_static_view"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_UM62kI97EeK0xejX5iixaQ" name="" client="_Ln3FQI97EeK0xejX5iixaQ" supplier="_vmly4I96EeK0xejX5iixaQ"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_VXPUoI97EeK0xejX5iixaQ" name="" client="_Ln3FQI97EeK0xejX5iixaQ" supplier="_WqdF4AsqEeKGfoivsLRX3g"/>
@@ -101,7 +101,7 @@
   </generator:class_scope>
   <generator:handler xmi:id="_XGj6AI93EeK0xejX5iixaQ" base_Class="_0Ds0MI92EeK0xejX5iixaQ"/>
   <generator:handler xmi:id="_gmPggI93EeK0xejX5iixaQ" base_Class="_Yd-Y4I93EeK0xejX5iixaQ"/>
-  <generator:handler xmi:id="_0Sv1cI95EeK0xejX5iixaQ" base_Class="_e5cVkI95EeK0xejX5iixaQ"/>
+  <generator:handler xmi:id="_0Sv1cI95EeK0xejX5iixaQ" base_Class="_e5cVkI95EeK0xejX5iixaQ" order="11"/>
   <generator:class_scope xmi:id="_88mxwI96EeK0xejX5iixaQ" base_Class="_vmly4I96EeK0xejX5iixaQ" scopename="pyramid_static_view">
     <stereotypes>pyramid:static_view</stereotypes>
     <interfaces>IClass</interfaces>
