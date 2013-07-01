@@ -165,6 +165,29 @@ def mark_config_scan(self, source, target):
 def generate_docs(self, source, target):
     print NotImplementedError("generate docs.")
 
+def create_template_file(tdir, template, from_template=None):
+    splitted = template.split('/')
+    fname = splitted[-1]
+    if len(splitted) > 1:  # we have to check/create containing dirs
+        for dname in splitted[:-1]:
+            if not tdir.has_key(dname):
+                # lets create it
+                new = Directory(dname)
+                tdir[dname] = new
+                tdir = tdir
+
+            tdir = tdir[dname]
+
+    
+    # get the template-template name
+    if from_template and from_template != 'none':
+        print 'getting template template:', from_template
+        # and create the pagetemplate from the template-template
+        templ = DTMLTemplate()
+        tdir.factories[fname] = JinjaTemplate
+        templ.template = templatepath(from_template) + '.dtml'
+        tdir[fname] = templ
+    
 @handler('generate_view_function', 'uml2fs', 'connectorgenerator',
          'view_function')
 def generate_view_function(self, source, target):
@@ -209,31 +232,12 @@ def generate_view_function(self, source, target):
         
     print 'template name:',template, from_template
     if template:
-        splitted = template.split('/')
-        fname = splitted[-1]
         tdir = module.parent
-        if len(splitted) > 1:  # we have to check/create containing dirs
-            for dname in splitted[:-1]:
-                if not tdir.has_key(dname):
-                    # lets create it
-                    new = Directory(dname)
-                    tdir[dname] = new
-                    tdir = tdir
-    
-                tdir = tdir[dname]
-    
         # set the renderer parameter based on the template name
         dec.kwargs['renderer'] = "'%s'" % template
-        
-        # get the template-template name
-        if from_template and from_template != 'none':
-            print 'getting template template:', from_template
-            # and create the pagetemplate from the template-template
-            templ = DTMLTemplate()
-            tdir.factories[fname] = JinjaTemplate
-            templ.template = templatepath(from_template) + '.dtml'
-            tdir[fname] = templ
-            
+
+        #create the template in target dir
+        create_template_file(tdir, template, from_template)            
         # generate default function body
         funccode = '''return {"page_title": "%s"}''' % source.name
     
@@ -279,6 +283,8 @@ def mark_view_as_function(self, source, target):
 @handler('generate_view_class', 'uml2fs', 'semanticsgenerator', 'pyclass')
 def generate_view_class(self, source, target):
     targetklass=read_target_node(source,target.target)
+    module=targetklass.parent
+    tdir=module.parent
     
     try:
         tok=token(str(source.uuid),False)
@@ -299,12 +305,23 @@ def generate_view_class(self, source, target):
         
         #import pdb;pdb.set_trace()    
         init.args=['request','context']
-        
-        
+
         if not init.blocks('self.request'):
             init.insertfirst(Block('self.request = request'))
         if not init.blocks('self.context'):
             init.insertfirst(Block('self.context = context'))
             
+        #if its a view_class create the global_template
+        if view_class:
+            gtemplate=view_class.taggedvalue('global_template').value
+            from_gtemplate=view_class.taggedvalue('from_global_template').value
+            create_template_file(tdir, gtemplate, from_gtemplate)
+            imps=Imports(module)
+            imps.set('pyramid.renderers','get_renderer')
             
+            if not init.blocks('global_template'):
+                init.insertlast(Block('renderer = get_renderer("%s")' % gtemplate))
+                init.insertlast(Block('self.global_template = renderer.implementation()'))
+                init.insertlast(Block('self.macros = self.global_template.macros'))
+
     
