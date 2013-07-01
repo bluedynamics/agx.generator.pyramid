@@ -57,3 +57,10 @@ class pyramid_config_scan(Scope):
         return node.stereotype('pyramid:config_scan') is not None
 
 registerScope('pyramid_config_scan', 'uml2fs', [IPackage], pyramid_config_scan)
+
+class view_class(Scope):
+
+    def __call__(self, node):
+        return node.stereotype('pyramid:view_class') is not None
+
+registerScope('view_class', 'uml2fs', [IClass], view_class)

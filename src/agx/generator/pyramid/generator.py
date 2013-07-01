@@ -26,7 +26,7 @@ from node.ext.uml.interfaces import (
     IProperty,
     IAssociation,
 )
-from node.ext.python.interfaces import IModule
+from node.ext.python.interfaces import IModule,IClass as IPythonClass
 from node.ext.python.utils import Imports
 from node.ext.python import Function, Block, Decorator
 from node.ext.uml.utils import TaggedValues
@@ -170,8 +170,19 @@ def generate_docs(self, source, target):
 def generate_view_function(self, source, target):
     tgv = TaggedValues(source)
     func = read_target_node(source, target.target)
-    module = func.parent
-    imps = Imports(func.parent)
+    
+    if IPythonClass.providedBy(func.parent):
+        #We have a method
+        module=func.parent.parent
+        klass=source.parent
+        token(str(klass.uuid),True,has_view_methods=True)
+        is_method=True
+    else:
+        module = func.parent
+        is_method=False
+    
+    imps = Imports(module)
+        
     funccode = "return Response('this is the stub for view %s')" % source.name
     
     # name of view
@@ -186,7 +197,7 @@ def generate_view_function(self, source, target):
     imps.set('pyramid.view', 'view_config')
     
     # the request argument
-    if not 'request' in func.args:
+    if not is_method and not 'request' in func.args:
         func.args.append('request')
         
     # create the page template
@@ -236,7 +247,7 @@ def generate_view_function(self, source, target):
         func.insertfirst(Block(funccode))
         imps.set('pyramid.response', 'Response')
 
-@handler('generate_buildout', 'uml2fs', 'hierarchygenerator', 'pyramid_buildout',
+@handler('generate_buildout', 'uml2fs', 'semanticsgenerator', 'pyramid_buildout',
          order=11)
 def generate_buildout(self, source, target):
     egg = target.anchor
@@ -264,3 +275,36 @@ def generate_buildout(self, source, target):
          'view_function', order=8)
 def mark_view_as_function(self, source, target):
     token(str(source.uuid), True, is_function=True)
+
+@handler('generate_view_class', 'uml2fs', 'semanticsgenerator', 'pyclass')
+def generate_view_class(self, source, target):
+    targetklass=read_target_node(source,target.target)
+    
+    try:
+        tok=token(str(source.uuid),False)
+        has_view_methods=tok.has_view_methods
+    except:
+        has_view_methods=False
+        
+    view_class=source.stereotype('pyramid:view_class')
+    
+    #create init method
+    if view_class or has_view_methods:
+        inits=targetklass.functions('__init__')
+        if inits:
+            init=inits[0]
+        else:
+            init=Function('__init__')
+            targetklass.insertfirst(init)
+        
+        #import pdb;pdb.set_trace()    
+        init.args=['request','context']
+        
+        
+        if not init.blocks('self.request'):
+            init.insertfirst(Block('self.request = request'))
+        if not init.blocks('self.context'):
+            init.insertfirst(Block('self.context = context'))
+            
+            
+    
