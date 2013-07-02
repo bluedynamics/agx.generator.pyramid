@@ -304,7 +304,7 @@ def generate_view_class(self, source, target):
             targetklass.insertfirst(init)
         
         #import pdb;pdb.set_trace()    
-        init.args=['request','context']
+        init.args=['context','request']
 
         if not init.blocks('self.request'):
             init.insertfirst(Block('self.request = request'))
