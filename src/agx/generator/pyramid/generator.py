@@ -210,6 +210,9 @@ def generate_view_function(self, source, target):
     
     # name of view
     route_name = tgv.direct('route_name', 'pyramid:view', source.name)
+    if route_name=='/':
+        route_name=''
+        
     if not func.decorators('view_config'):
         func.insertfirst(Decorator('view_config'))
     

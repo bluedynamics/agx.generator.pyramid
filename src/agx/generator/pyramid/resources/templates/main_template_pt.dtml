@@ -13,7 +13,7 @@
 <body>
 <div id="header">
     <ul>
-        <li tal:repeat="menu view.site_menu">
+        <li tal:repeat="menu view.site_menu()">
             <tal:block tal:condition="menu.current">
                 <span>${menu.title}</span>
             </tal:block>
@@ -25,7 +25,7 @@
 </div>
 <div id="sidebar">
     <h2>Updates</h2>
-    <ul></ul>
+    <ul></ul> 
     <p><a href="#">reload</a></p>
 </div>
 <div id="main"><h1>${page_title}</h1>

@@ -5,5 +5,5 @@ files=model.di;\
     model.uml;\
     model.uml.agx;\
 
-title=Simple Pyramid Model
-description=Example model for a pyramid application.
+title=Pyramid Model with site template
+description=Pyramid Model with site template and global menu.
