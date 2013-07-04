@@ -3,16 +3,23 @@
     xmlns:agx="http://namespaces.zope.org/agx"
     xmlns="http://namespaces.zope.org/zope">
 
-  <agx:generator
-      name="mygenerator"
-      transform="uml2fs"
-      depends="connectorgenerator"/>
+    <include package="agx.generator.pyegg"/>
 
-  <agx:generator name="someumlgenerator" transform="xmi2uml" depends="NO"/>
+    <agx:generator
+        name="mygenerator"
+        transform="uml2fs"
+        depends="connectorgenerator"/>
 
-  <utility
-      name="agx.generator.pyramid.pyramid.pyramid"
-      component="agx.generator.pyramid.pyramid.pyramid"
-      provides="agx.core.interfaces.IProfileLocation"/>
+    <agx:generator name="someumlgenerator" transform="xmi2uml" depends="NO"/>
 
-<include package="agx.generator.pyegg"/></configure>
+    <utility
+        name="agx.generator.pyramid.pyramid.pyramid"
+        component="agx.generator.pyramid.pyramid.pyramid"
+        provides="agx.core.interfaces.IProfileLocation"/>
+
+    <agx:generator
+        name="pyramid_semanticsgenerator"
+        transform="uml2fs"
+        depends="semanticsgenerator"/>
+
+</configure>

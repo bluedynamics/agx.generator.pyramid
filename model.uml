@@ -43,6 +43,9 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_UNxucOIKEeKRUtLfnAuowQ" clientDependency="_aLXHMOIKEeKRUtLfnAuowQ _fOV44OIKEeKRUtLfnAuowQ" name="generate_view_class"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_aLXHMOIKEeKRUtLfnAuowQ" name="" client="_UNxucOIKEeKRUtLfnAuowQ" supplier="_Ic1AQBRDEeKcC97Hb5tvFQ"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_fOV44OIKEeKRUtLfnAuowQ" name="" client="_UNxucOIKEeKRUtLfnAuowQ" supplier="_EGx54AsrEeKGfoivsLRX3g"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_UnoIMOPTEeKRUtLfnAuowQ" clientDependency="_UOFpAOPiEeKRUtLfnAuowQ _pGrrcOSFEeKRUtLfnAuowQ" name="generate_sqlalchemy_config"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_UOFpAOPiEeKRUtLfnAuowQ" name="" client="_UnoIMOPTEeKRUtLfnAuowQ" supplier="_jP7DwOPSEeKRUtLfnAuowQ"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_pGrrcOSFEeKRUtLfnAuowQ" name="" client="_UnoIMOPTEeKRUtLfnAuowQ" supplier="_bKGb0OSFEeKRUtLfnAuowQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_Srs_EAsvEeKbFrhzZvXz8w" name="scope">
         <packagedElement xmi:type="uml:Class" xmi:id="_Ic1AQBRDEeKcC97Hb5tvFQ" name="pyclass"/>
@@ -54,10 +57,11 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_Mq1mcJFCEeKswagSEYVRHw" name="view_method"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_yDrb8JUCEeKlf65yjIehdg" name="pyramid_config_scan"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_9CGSAOIJEeKRUtLfnAuowQ" name="view_class"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_jP7DwOPSEeKRUtLfnAuowQ" name="sqlalchemy_package"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Dependency" xmi:id="_kzJEgA5vEeKgj7WFwZrcAg" name="" client="_W0v3AA5vEeKgj7WFwZrcAg" supplier="_WqdF4AsqEeKGfoivsLRX3g"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_W0v3AA5vEeKgj7WFwZrcAg" clientDependency="_kzJEgA5vEeKgj7WFwZrcAg" name="mygenerator"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_b5bi4BRDEeKcC97Hb5tvFQ" name="pyramid"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_bKGb0OSFEeKRUtLfnAuowQ" clientDependency="_liLp8OSFEeKRUtLfnAuowQ" name="pyramid_semanticsgenerator"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_liLp8OSFEeKRUtLfnAuowQ" name="" client="_bKGb0OSFEeKRUtLfnAuowQ" supplier="_EGx54AsrEeKGfoivsLRX3g"/>
     </packagedElement>
     <profileApplication xmi:id="_zZ1OMFyQEeG1mLF7jMwarw">
       <eAnnotations xmi:id="_zaNBoFyQEeG1mLF7jMwarw" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -91,7 +95,6 @@
   <pyegg:stub xmi:id="_PwH7kAsrEeKGfoivsLRX3g" base_Class="_EGx54AsrEeKGfoivsLRX3g"/>
   <pyegg:pymodule xmi:id="_fkunUAssEeKGfoivsLRX3g" base_Package="_XgZkgAssEeKGfoivsLRX3g"/>
   <pyegg:pymodule xmi:id="_gqVdIAsvEeKbFrhzZvXz8w" base_Package="_Srs_EAsvEeKbFrhzZvXz8w"/>
-  <generator:generator xmi:id="_dsJMoA5vEeKgj7WFwZrcAg" base_Class="_W0v3AA5vEeKgj7WFwZrcAg"/>
   <generator:simple_scope xmi:id="_WtCWgBRDEeKcC97Hb5tvFQ" base_Class="_Ic1AQBRDEeKcC97Hb5tvFQ" scopename="pyclass"/>
   <pyegg:autoimport xmi:id="_5BlxkBRTEeKcC97Hb5tvFQ" base_Package="_XgZkgAssEeKGfoivsLRX3g"/>
   <pyegg:autoimport xmi:id="_8MRk4BRTEeKcC97Hb5tvFQ" base_Package="_Srs_EAsvEeKbFrhzZvXz8w"/>
@@ -137,4 +140,11 @@
     <interfaces>IClass</interfaces>
   </generator:class_scope>
   <generator:handler xmi:id="_XwlG0OIKEeKRUtLfnAuowQ" base_Class="_UNxucOIKEeKRUtLfnAuowQ"/>
+  <generator:class_scope xmi:id="_sYRvYOPSEeKRUtLfnAuowQ" base_Class="_jP7DwOPSEeKRUtLfnAuowQ">
+    <stereotypes>sql:z3c_saconfig</stereotypes>
+    <stereotypes>pyramid:configuration</stereotypes>
+    <interfaces>IPackage</interfaces>
+  </generator:class_scope>
+  <generator:handler xmi:id="_H6GH0OPiEeKRUtLfnAuowQ" base_Class="_UnoIMOPTEeKRUtLfnAuowQ"/>
+  <generator:generator xmi:id="_gUSBsOSFEeKRUtLfnAuowQ" base_Class="_bKGb0OSFEeKRUtLfnAuowQ"/>
 </xmi:XMI>

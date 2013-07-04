@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pyegg="http:///schemas/pyegg/_B6iBsOLoEeKRUtLfnAuowQ/33" xmlns:pyramid="http:///schemas/pyramid/_XjUk8OJtEeKRUtLfnAuowQ/20" xmlns:sql="http:///schemas/sql/_E4w1oHtnEeKfMvxpliE4xA/35" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/pyegg/_B6iBsOLoEeKRUtLfnAuowQ/33 uml_profiles/pyegg.profile.uml#_B6iowOLoEeKRUtLfnAuowQ http:///schemas/pyramid/_XjUk8OJtEeKRUtLfnAuowQ/20 uml_profiles/pyramid.profile.uml#_XjUk8eJtEeKRUtLfnAuowQ http:///schemas/sql/_E4w1oHtnEeKfMvxpliE4xA/35 uml_profiles/sql.profile.uml#_E4xcsHtnEeKfMvxpliE4xA">
+  <uml:Model xmi:id="_rxHwYFyQEeG1mLF7jMwarw" name="model">
+    <packageImport xmi:id="_qTyF0OSHEeKRUtLfnAuowQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_0vR-MFyQEeG1mLF7jMwarw" name="pyramidonal">
+      <packagedElement xmi:type="uml:Package" xmi:id="_NDQ9cJPHEeKlf65yjIehdg" name="static_resources"/>
+      <packagedElement xmi:type="uml:Package" xmi:id="_2FtoAJVEEeKiprBeZA9sgQ" clientDependency="_NV92MOSIEeKRUtLfnAuowQ" name="views">
+        <ownedComment xmi:id="_f94qYOTGEeKRUtLfnAuowQ" annotatedElement="_HwdHkOIJEeKRUtLfnAuowQ">
+          <body>class based view</body>
+        </ownedComment>
+        <packagedElement xmi:type="uml:Class" xmi:id="_HwdHkOIJEeKRUtLfnAuowQ" name="ViewTemplate">
+          <ownedOperation xmi:id="_stIewOMGEeKRUtLfnAuowQ" name="home"/>
+          <ownedOperation xmi:id="_1Y1DkOMGEeKRUtLfnAuowQ" name="about"/>
+          <ownedOperation xmi:id="_dm8wgOMLEeKRUtLfnAuowQ" name="imprint"/>
+          <ownedOperation xmi:id="_tMQwMOTGEeKRUtLfnAuowQ" name="persons"/>
+          <ownedOperation xmi:id="_sgZ4EOMLEeKRUtLfnAuowQ" name="site_menu"/>
+          <ownedOperation xmi:id="_mOAvMOTHEeKRUtLfnAuowQ" name="create_person"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_NV92MOSIEeKRUtLfnAuowQ" name="" client="_2FtoAJVEEeKiprBeZA9sgQ" supplier="_XRrG0OSHEeKRUtLfnAuowQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_QPZW4OSHEeKRUtLfnAuowQ" name="model">
+        <packagedElement xmi:type="uml:Class" xmi:id="_XRrG0OSHEeKRUtLfnAuowQ" name="Person">
+          <ownedAttribute xmi:id="_htUmUOSHEeKRUtLfnAuowQ" name="id" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iKg4oOSHEeKRUtLfnAuowQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iKhfsOSHEeKRUtLfnAuowQ" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_iKiGwOSHEeKRUtLfnAuowQ">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_yN5csOSHEeKRUtLfnAuowQ" name="firstname" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zRx7kOSHEeKRUtLfnAuowQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zRx7keSHEeKRUtLfnAuowQ" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_zRyioOSHEeKRUtLfnAuowQ">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_4ZKFEOSHEeKRUtLfnAuowQ" name="lastname" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_45H-kOSHEeKRUtLfnAuowQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_45H-keSHEeKRUtLfnAuowQ" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_45JMsOSHEeKRUtLfnAuowQ">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_cMpX8OTHEeKRUtLfnAuowQ" name="addresses" type="_C15LEOTHEeKRUtLfnAuowQ" aggregation="composite" association="_cMp_AOTHEeKRUtLfnAuowQ">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cMpX8eTHEeKRUtLfnAuowQ"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cMpX8uTHEeKRUtLfnAuowQ" value="*"/>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Class" xmi:id="_C15LEOTHEeKRUtLfnAuowQ" name="Address">
+          <ownedAttribute xmi:id="_XMs2sOTIEeKRUtLfnAuowQ" name="id" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Xq09IOTIEeKRUtLfnAuowQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xq1kMOTIEeKRUtLfnAuowQ" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_Xq2LQOTIEeKRUtLfnAuowQ">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_Hp8v8OTHEeKRUtLfnAuowQ" name="city" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IFLTYOTHEeKRUtLfnAuowQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IFLTYeTHEeKRUtLfnAuowQ" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_IFL6cOTHEeKRUtLfnAuowQ">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_N5O8sOTHEeKRUtLfnAuowQ" name="zip" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OYC_oOTHEeKRUtLfnAuowQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OYENwOTHEeKRUtLfnAuowQ" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_OYE00OTHEeKRUtLfnAuowQ">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_SKSiMOTHEeKRUtLfnAuowQ" name="street" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_S3_VsOTHEeKRUtLfnAuowQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_S3_8wOTHEeKRUtLfnAuowQ" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_S4BK4OTHEeKRUtLfnAuowQ">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedAttribute>
+          <ownedAttribute xmi:id="_X7ZlMOTHEeKRUtLfnAuowQ" name="country" visibility="public">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_YaCpAOTHEeKRUtLfnAuowQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_YaDQEOTHEeKRUtLfnAuowQ" value="1"/>
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_YaEeMOTHEeKRUtLfnAuowQ">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedAttribute>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_cMp_AOTHEeKRUtLfnAuowQ" name="person_address_1" memberEnd="_cMp_AeTHEeKRUtLfnAuowQ _cMpX8OTHEeKRUtLfnAuowQ">
+          <ownedEnd xmi:id="_cMp_AeTHEeKRUtLfnAuowQ" name="person" type="_XRrG0OSHEeKRUtLfnAuowQ" association="_cMp_AOTHEeKRUtLfnAuowQ">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cMp_AuTHEeKRUtLfnAuowQ" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cMp_A-THEeKRUtLfnAuowQ" value="1"/>
+          </ownedEnd>
+        </packagedElement>
+      </packagedElement>
+      <profileApplication xmi:id="_nuwlIJPGEeKlf65yjIehdg">
+        <eAnnotations xmi:id="_nvPGQJPGEeKlf65yjIehdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="uml_profiles/pyramid.profile.uml#_XjUk8eJtEeKRUtLfnAuowQ"/>
+        </eAnnotations>
+        <appliedProfile href="uml_profiles/pyramid.profile.uml#_29Xa4FwvEeK2OIPViOliQA"/>
+      </profileApplication>
+      <profileApplication xmi:id="_GqAJ8OSHEeKRUtLfnAuowQ">
+        <eAnnotations xmi:id="_GqVhIOSHEeKRUtLfnAuowQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="uml_profiles/sql.profile.uml#_E4xcsHtnEeKfMvxpliE4xA"/>
+        </eAnnotations>
+        <appliedProfile href="uml_profiles/sql.profile.uml#_f6v-ANgQEeGgbbtOgTBdsg"/>
+      </profileApplication>
+    </packagedElement>
+    <profileApplication xmi:id="_zZ1OMFyQEeG1mLF7jMwarw">
+      <eAnnotations xmi:id="_zaNBoFyQEeG1mLF7jMwarw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="uml_profiles/pyegg.profile.uml#_B6iowOLoEeKRUtLfnAuowQ"/>
+      </eAnnotations>
+      <appliedProfile href="uml_profiles/pyegg.profile.uml#_HHBJsNqqEd6cif0axL0c4w"/>
+    </profileApplication>
+  </uml:Model>
+  <pyegg:pyegg xmi:id="_3P7WAFyQEeG1mLF7jMwarw" base_Package="_0vR-MFyQEeG1mLF7jMwarw"/>
+  <pyramid:static_view xmi:id="_hDiN0JPHEeKlf65yjIehdg" base_Package="_NDQ9cJPHEeKlf65yjIehdg" url="static" from_template="pyramid_standard"/>
+  <pyramid:config_scan xmi:id="_zaMLoJTxEeKiprBeZA9sgQ" base_Package="_0vR-MFyQEeG1mLF7jMwarw"/>
+  <pyegg:pymodule xmi:id="_OftQsJVQEeKiprBeZA9sgQ" base_Package="_2FtoAJVEEeKiprBeZA9sgQ"/>
+  <pyegg:autoimport xmi:id="_Uz2gkJVWEeKiprBeZA9sgQ" base_Package="_2FtoAJVEEeKiprBeZA9sgQ"/>
+  <pyramid:configuration xmi:id="_-vqS0JVkEeKiprBeZA9sgQ" base_Package="_0vR-MFyQEeG1mLF7jMwarw"/>
+  <pyramid:buildout xmi:id="_UIz7sKRNEeKRRYoae0ojQg" base_Package="_0vR-MFyQEeG1mLF7jMwarw"/>
+  <pyramid:view_class xmi:id="_JYsQsOIJEeKRUtLfnAuowQ" base_Class="_HwdHkOIJEeKRUtLfnAuowQ" global_template="templates/global_template.pt" from_global_template="main_template_pt"/>
+  <pyramid:view xmi:id="_u8OzkOMGEeKRUtLfnAuowQ" route_name="/" base_Operation="_stIewOMGEeKRUtLfnAuowQ" template="templates/home.pt" from_template="content_pt"/>
+  <pyramid:view xmi:id="_3MQJAOMGEeKRUtLfnAuowQ" route_name="about.html" base_Operation="_1Y1DkOMGEeKRUtLfnAuowQ" template="templates/about.pt" from_template="content_pt"/>
+  <pyramid:view xmi:id="_fchLAOMLEeKRUtLfnAuowQ" route_name="imprint.html" base_Operation="_dm8wgOMLEeKRUtLfnAuowQ" template="templates/imprint.pt" from_template="content_pt"/>
+  <pyegg:function xmi:id="_vQG_kOMLEeKRUtLfnAuowQ" base_Operation="_sgZ4EOMLEeKRUtLfnAuowQ" code="'''static implementation, insert your menu logic here'''&#xA;new_menu = SITE_MENU = [&#xA;    {'href': '', 'title': 'Home'},&#xA;    {'href': 'about.html', 'title': 'About'},&#xA;    {'href': 'imprint.html', 'title': 'Imprint'},&#xA;    ]&#xA;&#xA;url = self.request.url&#xA;for menu in new_menu:&#xA;    if menu['title'] == 'Home':&#xA;        menu['current'] = url.endswith('/')&#xA;    else:&#xA;        menu['current'] = url.endswith(menu['href'])&#xA;        &#xA;return new_menu&#xA;"/>
+  <pyegg:pymodule xmi:id="_Tih7kOSHEeKRUtLfnAuowQ" base_Package="_QPZW4OSHEeKRUtLfnAuowQ"/>
+  <pyramid:view xmi:id="_z4ILQOTGEeKRUtLfnAuowQ" route_name="persons.html" base_Operation="_tMQwMOTGEeKRUtLfnAuowQ" template="templates/persons.pt" from_template="content_pt"/>
+  <sql:z3c_saconfig xmi:id="_CXI9EOTIEeKRUtLfnAuowQ" base_Package="_0vR-MFyQEeG1mLF7jMwarw" engine_url="sqlite:///demo.db"/>
+  <sql:sql_content xmi:id="_P1buMOTIEeKRUtLfnAuowQ" base_Class="_XRrG0OSHEeKRUtLfnAuowQ"/>
+  <sql:sql_content xmi:id="_Sunh0OTIEeKRUtLfnAuowQ" base_Class="_C15LEOTHEeKRUtLfnAuowQ"/>
+  <sql:primary xmi:id="_kerDEOTIEeKRUtLfnAuowQ" base_Property="_htUmUOSHEeKRUtLfnAuowQ"/>
+  <pyramid:view xmi:id="_fLUBIOTKEeKRUtLfnAuowQ" base_Operation="_mOAvMOTHEeKRUtLfnAuowQ"/>
+  <sql:primary xmi:id="_VmebkOTPEeKRUtLfnAuowQ" base_Property="_XMs2sOTIEeKRUtLfnAuowQ"/>
+  <pyegg:function xmi:id="_oebHEOTREeKRUtLfnAuowQ" base_Operation="_mOAvMOTHEeKRUtLfnAuowQ" code="'''does some silly random person creation'''&#xA;import random&#xA;import model&#xA;firstnames = ['Donald', 'Gustav', 'Dagobert', 'Walter', 'Brian']&#xA;lastnames = ['Duck', 'Smith', 'Gstierbreitner']&#xA;pers = model.Person(firstname=random.choice(firstnames), lastname=random.choice(lastnames))&#xA;self.request.db.add(pers)&#xA;pers.addresses.append(model.Address(city='Entenhausen', street='Erpelweg 13'))&#xA;return Response('Added %s %s' % (pers.firstname, pers.lastname))&#xA;"/>
+</xmi:XMI>

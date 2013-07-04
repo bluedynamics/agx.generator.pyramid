@@ -26,7 +26,7 @@ from node.ext.uml.interfaces import (
     IProperty,
     IAssociation,
 )
-from node.ext.python.interfaces import IModule,IClass as IPythonClass
+from node.ext.python.interfaces import IModule, IClass as IPythonClass
 from node.ext.python.utils import Imports
 from node.ext.python import Function, Block, Decorator
 from node.ext.uml.utils import TaggedValues
@@ -59,7 +59,7 @@ def generate_configuration(self, source, target):
     # create a function main if not present
     if 'main' not in [f.functionname for f in module.functions()]:
         func = Function('main')
-        func.args=['global_config','**settings']
+        func.args = ['global_config', '**settings']
         module.insertafterimports(func)
     
     main = module.functions(name='main')[0]
@@ -108,9 +108,9 @@ def generate_ini_files(self, source, target):
         egg.factories[name] = JinjaTemplate
             
         if name not in egg.keys():
-            egg[name]=JinjaTemplate()
-            egg[name].template= templatepath(name+'.jinja')
-            egg[name].params={'package':source.name,
+            egg[name] = JinjaTemplate()
+            egg[name].template = templatepath(name + '.jinja')
+            egg[name].params = {'package':source.name,
                                         'host':'0.0.0.0',
                                         'port':'8080'}
     
@@ -158,7 +158,7 @@ def mark_config_scan(self, source, target):
     if source.stereotype('pyegg:pyegg'):
         tok.scans.append('')
     else:
-        tok.scans.append('.'+source.name)
+        tok.scans.append('.' + source.name)
 
 @handler('generate_docs', 'uml2fs', 'semanticsgenerator',
          'pyramid_configuration')
@@ -175,9 +175,9 @@ def create_template_file(tdir, template, from_template=None):
                 new = Directory(dname)
                 tdir[dname] = new
                 tdir = tdir
-
+    
             tdir = tdir[dname]
-
+    
     
     # get the template-template name
     if from_template and from_template != 'none':
@@ -187,7 +187,7 @@ def create_template_file(tdir, template, from_template=None):
         tdir.factories[fname] = JinjaTemplate
         templ.template = templatepath(from_template) + '.dtml'
         tdir[fname] = templ
-    
+
 @handler('generate_view_function', 'uml2fs', 'connectorgenerator',
          'view_function')
 def generate_view_function(self, source, target):
@@ -195,14 +195,14 @@ def generate_view_function(self, source, target):
     func = read_target_node(source, target.target)
     
     if IPythonClass.providedBy(func.parent):
-        #We have a method
-        module=func.parent.parent
-        klass=source.parent
-        token(str(klass.uuid),True,has_view_methods=True)
-        is_method=True
+        # We have a method
+        module = func.parent.parent
+        klass = source.parent
+        token(str(klass.uuid), True, has_view_methods=True)
+        is_method = True
     else:
         module = func.parent
-        is_method=False
+        is_method = False
     
     imps = Imports(module)
         
@@ -210,8 +210,8 @@ def generate_view_function(self, source, target):
     
     # name of view
     route_name = tgv.direct('route_name', 'pyramid:view', source.name)
-    if route_name=='/':
-        route_name=''
+    if route_name == '/':
+        route_name = ''
         
     if not func.decorators('view_config'):
         func.insertfirst(Decorator('view_config'))
@@ -233,13 +233,13 @@ def generate_view_function(self, source, target):
     if from_template and from_template != 'none' and not template:
         template = source.name + '.pt'
         
-    print 'template name:',template, from_template
+    print 'template name:', template, from_template
     if template:
         tdir = module.parent
         # set the renderer parameter based on the template name
         dec.kwargs['renderer'] = "'%s'" % template
-
-        #create the template in target dir
+    
+        # create the template in target dir
         create_template_file(tdir, template, from_template)            
         # generate default function body
         funccode = '''return {"page_title": "%s"}''' % source.name
@@ -264,19 +264,19 @@ def generate_buildout(self, source, target):
     egg.factories['bootstrap.py'] = JinjaTemplate
     
     if 'versions.cfg' not in egg:
-        egg['versions.cfg']=JinjaTemplate()
-        egg['versions.cfg'].template= templatepath('versions.cfg.jinja')
-        egg['versions.cfg'].params={}
+        egg['versions.cfg'] = JinjaTemplate()
+        egg['versions.cfg'].template = templatepath('versions.cfg.jinja')
+        egg['versions.cfg'].params = {}
         
     if 'buildout.cfg' not in egg.keys():
-        egg['buildout.cfg']=JinjaTemplate()
-        egg['buildout.cfg'].template= templatepath('buildout.cfg.jinja')
-        egg['buildout.cfg'].params={'package':source.name}
+        egg['buildout.cfg'] = JinjaTemplate()
+        egg['buildout.cfg'].template = templatepath('buildout.cfg.jinja')
+        egg['buildout.cfg'].params = {'package':source.name}
         
     if 'bootstrap.py' not in egg.keys():
-        egg['bootstrap.py']=JinjaTemplate()
-        egg['bootstrap.py'].template= templatepath('bootstrap.py.jinja')
-        egg['bootstrap.py'].params={}
+        egg['bootstrap.py'] = JinjaTemplate()
+        egg['bootstrap.py'].template = templatepath('bootstrap.py.jinja')
+        egg['bootstrap.py'].params = {}
 
 @handler('mark_view_as_function', 'uml2fs', 'hierarchygenerator',
          'view_function', order=8)
@@ -285,46 +285,93 @@ def mark_view_as_function(self, source, target):
 
 @handler('generate_view_class', 'uml2fs', 'semanticsgenerator', 'pyclass')
 def generate_view_class(self, source, target):
-    targetklass=read_target_node(source,target.target)
-    module=targetklass.parent
-    tdir=module.parent
+    targetklass = read_target_node(source, target.target)
+    try:
+        module = targetklass.parent
+    except AttributeError:
+        # if there is no parent, this handler is not responsible
+        return
+    tdir = module.parent
     
     try:
-        tok=token(str(source.uuid),False)
-        has_view_methods=tok.has_view_methods
+        tok = token(str(source.uuid), False)
+        has_view_methods = tok.has_view_methods
     except:
-        has_view_methods=False
+        has_view_methods = False
         
-    view_class=source.stereotype('pyramid:view_class')
+    view_class = source.stereotype('pyramid:view_class')
     
-    #create init method
+    # create init method
     if view_class or has_view_methods:
-        inits=targetklass.functions('__init__')
+        inits = targetklass.functions('__init__')
         if inits:
-            init=inits[0]
+            init = inits[0]
         else:
-            init=Function('__init__')
+            init = Function('__init__')
             targetklass.insertfirst(init)
         
-        #import pdb;pdb.set_trace()    
-        init.args=['context','request']
-
+        # import pdb;pdb.set_trace()    
+        init.args = ['context', 'request']
+    
         if not init.blocks('self.request'):
             init.insertfirst(Block('self.request = request'))
         if not init.blocks('self.context'):
             init.insertfirst(Block('self.context = context'))
             
-        #if its a view_class create the global_template
+        # if its a view_class create the global_template
         if view_class:
-            gtemplate=view_class.taggedvalue('global_template').value
-            from_gtemplate=view_class.taggedvalue('from_global_template').value
+            gtemplate = view_class.taggedvalue('global_template').value
+            from_gtemplate = view_class.taggedvalue('from_global_template').value
             create_template_file(tdir, gtemplate, from_gtemplate)
-            imps=Imports(module)
-            imps.set('pyramid.renderers','get_renderer')
+            imps = Imports(module)
+            imps.set('pyramid.renderers', 'get_renderer')
             
             if not init.blocks('global_template'):
                 init.insertlast(Block('renderer = get_renderer("%s")' % gtemplate))
                 init.insertlast(Block('self.global_template = renderer.implementation()'))
                 init.insertlast(Block('self.macros = self.global_template.macros'))
 
+@handler('generate_sqlalchemy_config', 'uml2fs', 'pyramid_semanticsgenerator',
+         'sqlalchemy_package')
+def generate_sqlalchemy_config(self, source, target):
+    tgt = read_target_node(source, target.target)
+    if IModule.providedBy(tgt):
+        # target is a module, then its ok
+        module = tgt
+        target_dir = module.parent
+    else:
+        # fetch __init__.py
+        module = tgt['__init__.py']
+        target_dir = tgt
+
     
+    # first lets create sqla_config.py that does all the config situps
+    fname = 'sqla_config.py'
+    package_name = implicit_dotted_path(source)
+    templ = JinjaTemplate()
+    target_dir.factories[fname] = JinjaTemplate
+    templ.template = templatepath(fname) + '.jinja'
+    target_dir[fname] = templ
+    target_dir[fname].params = {'engine_name':'default', 'package_name':dotted_path(source)}
+#    import pdb;pdb.set_trace()
+
+    # now lets call config_db from the __init__.py
+    imps = Imports(module)
+    imps.set('sqla_config', 'config_db')
+    main = module.functions('main')[0]
+    term = 'config.make_wsgi_app'
+    make_app = main.blocks(term)[0]
+    lines = make_app.lines
+    # find occurrence of line in block
+    index = -1
+    found = False
+    for i in range(len(lines)):
+        if term in lines[i]:
+            index = i
+        if 'config_db' in lines[i]:
+            found=True
+            
+    if index != -1 and not found:
+        lines.insert(index, 'config_db(config)')
+    
+        

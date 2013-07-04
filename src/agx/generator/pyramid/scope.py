@@ -64,3 +64,10 @@ class view_class(Scope):
         return node.stereotype('pyramid:view_class') is not None
 
 registerScope('view_class', 'uml2fs', [IClass], view_class)
+
+class sqlalchemy_package(Scope):
+
+    def __call__(self, node):
+        return node.stereotype('sql:z3c_saconfig') is not None and node.stereotype('pyramid:configuration') is not None
+
+registerScope('sqlalchemy_package', 'uml2fs', [IPackage], sqlalchemy_package)
