@@ -71,3 +71,10 @@ class sqlalchemy_package(Scope):
         return node.stereotype('sql:z3c_saconfig') is not None and node.stereotype('pyramid:configuration') is not None
 
 registerScope('sqlalchemy_package', 'uml2fs', [IPackage], sqlalchemy_package)
+
+class i18_egg(Scope):
+
+    def __call__(self, node):
+        return node.stereotype('pyramid:i18n') is not None or node.stereotype('pyegg:pyegg') is not None
+
+registerScope('i18_egg', 'uml2fs', [IPackage], i18_egg)

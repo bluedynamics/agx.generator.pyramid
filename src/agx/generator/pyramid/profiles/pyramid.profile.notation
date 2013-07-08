@@ -369,7 +369,7 @@
     <styles xmi:type="notation:TextStyle" xmi:id="_-8czMZDmEeKswagSEYVRHw"/>
     <styles xmi:type="notation:LineTypeStyle" xmi:id="_-8czMpDmEeKswagSEYVRHw"/>
     <element xsi:nil="true"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-8czM5DmEeKswagSEYVRHw" x="916" y="104"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-8czM5DmEeKswagSEYVRHw" x="956" y="176"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_J6RysJDnEeKswagSEYVRHw" type="Note" fontName="Lucida Grande" fontHeight="11" description="not sure, will perhaps be dumped" transparency="0" lineColor="0" lineWidth="1">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_J6RytJDnEeKswagSEYVRHw" source="PapyrusCSSForceValue">
@@ -543,6 +543,29 @@
     <element xmi:type="uml:Enumeration" href="pyramid.profile.uml#_D45QcOJnEeKRUtLfnAuowQ"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_D47sseJnEeKRUtLfnAuowQ" x="112" y="572"/>
   </children>
+  <children xmi:type="notation:Shape" xmi:id="_OqK5EOf2EeKRUtLfnAuowQ" type="1026">
+    <children xmi:type="notation:DecorationNode" xmi:id="_OqK5Euf2EeKRUtLfnAuowQ" type="1034"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_OqK5E-f2EeKRUtLfnAuowQ" type="1071">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OqLgIOf2EeKRUtLfnAuowQ" source="PapyrusCSSForceValue">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OqLgIef2EeKRUtLfnAuowQ" key="showTitle" value="true"/>
+      </eAnnotations>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_OqK5FOf2EeKRUtLfnAuowQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_OqK5Fef2EeKRUtLfnAuowQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_OqK5Fuf2EeKRUtLfnAuowQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OqK5F-f2EeKRUtLfnAuowQ"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_OqK5GOf2EeKRUtLfnAuowQ" visible="false" type="1019">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_OqLgIuf2EeKRUtLfnAuowQ" source="PapyrusCSSForceValue">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_OqLgI-f2EeKRUtLfnAuowQ" key="showTitle" value="true"/>
+      </eAnnotations>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_OqK5Gef2EeKRUtLfnAuowQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_OqK5Guf2EeKRUtLfnAuowQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_OqK5G-f2EeKRUtLfnAuowQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OqK5HOf2EeKRUtLfnAuowQ"/>
+    </children>
+    <element xmi:type="uml:Stereotype" href="pyramid.profile.uml#_OqHOsOf2EeKRUtLfnAuowQ"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OqK5Eef2EeKRUtLfnAuowQ" x="976" y="124" height="41"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_29xqkVwvEeK2OIPViOliQA"/>
   <element xmi:type="uml:Profile" href="pyramid.profile.uml#_29Xa4FwvEeK2OIPViOliQA"/>
   <edges xmi:type="notation:Connector" xmi:id="_0BFtAH7LEeKISLySejkwCA" type="1013" source="_ylq34H7LEeKISLySejkwCA" target="_H6rQkFwwEeK2OIPViOliQA">
@@ -686,5 +709,11 @@
     <element xmi:type="uml:Generalization" href="pyramid.profile.uml#_Ruu_IOHIEeKRUtLfnAuowQ"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_RvZtguHIEeKRUtLfnAuowQ" points="[-50, 0, 59, 0]$[-80, -15, 29, -15]"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RvoXAOHIEeKRUtLfnAuowQ" id="(0.8535353535353535,0.2976190476190476)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_SqTGoOf2EeKRUtLfnAuowQ" type="1013" source="_OqK5EOf2EeKRUtLfnAuowQ" target="_NitQEFwwEeK2OIPViOliQA">
+    <styles xmi:type="notation:FontStyle" xmi:id="_SqTGoef2EeKRUtLfnAuowQ"/>
+    <element xmi:type="uml:Extension" href="pyramid.profile.uml#_SqLK0Of2EeKRUtLfnAuowQ"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SqTGouf2EeKRUtLfnAuowQ" points="[-9, -1, 246, 2]$[-205, -11, 50, -8]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Sqf68Of2EeKRUtLfnAuowQ" id="(0.09,0.28)"/>
   </edges>
 </notation:Diagram>

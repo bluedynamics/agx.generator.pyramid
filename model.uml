@@ -46,6 +46,9 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_UnoIMOPTEeKRUtLfnAuowQ" clientDependency="_UOFpAOPiEeKRUtLfnAuowQ _pGrrcOSFEeKRUtLfnAuowQ" name="generate_sqlalchemy_config"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_UOFpAOPiEeKRUtLfnAuowQ" name="" client="_UnoIMOPTEeKRUtLfnAuowQ" supplier="_jP7DwOPSEeKRUtLfnAuowQ"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_pGrrcOSFEeKRUtLfnAuowQ" name="" client="_UnoIMOPTEeKRUtLfnAuowQ" supplier="_bKGb0OSFEeKRUtLfnAuowQ"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_CvxuMOf3EeKRUtLfnAuowQ" clientDependency="_L2ieYOf3EeKRUtLfnAuowQ _M1wfsOf3EeKRUtLfnAuowQ" name="setup_i18n"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_L2ieYOf3EeKRUtLfnAuowQ" name="" client="_CvxuMOf3EeKRUtLfnAuowQ" supplier="_jJxw0Of2EeKRUtLfnAuowQ"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_M1wfsOf3EeKRUtLfnAuowQ" name="" client="_CvxuMOf3EeKRUtLfnAuowQ" supplier="_bKGb0OSFEeKRUtLfnAuowQ"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_Srs_EAsvEeKbFrhzZvXz8w" name="scope">
         <packagedElement xmi:type="uml:Class" xmi:id="_Ic1AQBRDEeKcC97Hb5tvFQ" name="pyclass"/>
@@ -58,6 +61,7 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_yDrb8JUCEeKlf65yjIehdg" name="pyramid_config_scan"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_9CGSAOIJEeKRUtLfnAuowQ" name="view_class"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_jP7DwOPSEeKRUtLfnAuowQ" name="sqlalchemy_package"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_jJxw0Of2EeKRUtLfnAuowQ" name="i18_egg"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_b5bi4BRDEeKcC97Hb5tvFQ" name="pyramid"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_bKGb0OSFEeKRUtLfnAuowQ" clientDependency="_liLp8OSFEeKRUtLfnAuowQ" name="pyramid_semanticsgenerator"/>
@@ -147,4 +151,10 @@
   </generator:class_scope>
   <generator:handler xmi:id="_H6GH0OPiEeKRUtLfnAuowQ" base_Class="_UnoIMOPTEeKRUtLfnAuowQ"/>
   <generator:generator xmi:id="_gUSBsOSFEeKRUtLfnAuowQ" base_Class="_bKGb0OSFEeKRUtLfnAuowQ"/>
+  <generator:class_scope xmi:id="_qOGvMOf2EeKRUtLfnAuowQ" base_Class="_jJxw0Of2EeKRUtLfnAuowQ">
+    <stereotypes>pyramid:i18n</stereotypes>
+    <stereotypes>pyegg:pyegg</stereotypes>
+    <interfaces>IPackage</interfaces>
+  </generator:class_scope>
+  <generator:handler xmi:id="_JuzV0Of3EeKRUtLfnAuowQ" base_Class="_CvxuMOf3EeKRUtLfnAuowQ"/>
 </xmi:XMI>
