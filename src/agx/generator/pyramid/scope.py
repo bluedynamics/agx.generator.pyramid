@@ -78,3 +78,10 @@ class i18_egg(Scope):
         return node.stereotype('pyramid:i18n') is not None and node.stereotype('pyegg:pyegg') is not None
 
 registerScope('i18_egg', 'uml2fs', [IPackage], i18_egg)
+
+class pyramid_siteroot(Scope):
+
+    def __call__(self, node):
+        return node.stereotype('pyramid:site_root') is not None
+
+registerScope('pyramid_siteroot', 'uml2fs', None, pyramid_siteroot)

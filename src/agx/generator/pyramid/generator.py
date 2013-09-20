@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 import os
 import shutil
+from zope.component import ComponentLookupError
 from agx.generator.pyegg.utils import (
     class_base_name,
     implicit_dotted_path,
+    import_if_necessary,
 )
 from agx.core.util import (
     read_target_node,
@@ -63,8 +65,18 @@ def generate_configuration(self, source, target):
         module.insertafterimports(func)
     
     main = module.functions(name='main')[0]
+    try:
+        srtok=token('site_root', False)
+        bootstrap=srtok.bootstrap
+    except ComponentLookupError:
+        bootstrap=None
+        
     if not main.blocks('Configurator'):
-        main.insertfirst(Block('config = Configurator()'))
+        if bootstrap:
+            import_if_necessary(module, bootstrap)
+            main.insertfirst(Block('config = Configurator(root_factory=bootstrap)'))
+        else:
+            main.insertfirst(Block('config = Configurator()'))
         
     
     
@@ -183,10 +195,11 @@ def create_template_file(tdir, template, from_template=None):
     if from_template and from_template != 'none':
         print 'getting template template:', from_template
         # and create the pagetemplate from the template-template
-        templ = DTMLTemplate()
-        tdir.factories[fname] = JinjaTemplate
-        templ.template = templatepath(from_template) + '.dtml'
-        tdir[fname] = templ
+        if fname not in tdir.keys():
+            templ = DTMLTemplate()
+            tdir.factories[fname] = JinjaTemplate
+            templ.template = templatepath(from_template) + '.dtml'
+            tdir[fname] = templ
 
 @handler('generate_view_function', 'uml2fs', 'connectorgenerator',
          'view_function')
@@ -334,45 +347,45 @@ def generate_view_class(self, source, target):
 @handler('generate_sqlalchemy_config', 'uml2fs', 'pyramid_semanticsgenerator',
          'sqlalchemy_package')
 def generate_sqlalchemy_config(self, source, target):
-        tgt = read_target_node(source, target.target)
-        if IModule.providedBy(tgt):
-            # target is a module, then its ok
-            module = tgt
-            target_dir = module.parent
-        else:
-            # fetch __init__.py
-            module = tgt['__init__.py']
-            target_dir = tgt
+    tgt = read_target_node(source, target.target)
+    if IModule.providedBy(tgt):
+        # target is a module, then its ok
+        module = tgt
+        target_dir = module.parent
+    else:
+        # fetch __init__.py
+        module = tgt['__init__.py']
+        target_dir = tgt
     
-        
-        # first lets create sqla_config.py that does all the config situps
-        fname = 'sqla_config.py'
-        package_name = implicit_dotted_path(source)
-        templ = JinjaTemplate()
-        target_dir.factories[fname] = JinjaTemplate
-        templ.template = templatepath(fname) + '.jinja'
-        target_dir[fname] = templ
-        target_dir[fname].params = {'engine_name':'default', 'package_name':dotted_path(source)}
-    #    import pdb;pdb.set_trace()
     
-        # now lets call config_db from the __init__.py
-        imps = Imports(module)
-        imps.set('sqla_config', 'config_db')
-        main = module.functions('main')[0]
-        term = 'config.make_wsgi_app'
-        make_app = main.blocks(term)[0]
-        lines = make_app.lines
-        # find occurrence of line in block
-        index = -1
-        found = False
-        for i in range(len(lines)):
-            if term in lines[i]:
-                index = i
-            if 'config_db' in lines[i]:
-                found=True
-                
-        if index != -1 and not found:
-            lines.insert(index, 'config_db(config)')
+    # first lets create sqla_config.py that does all the config situps
+    fname = 'sqla_config.py'
+    package_name = implicit_dotted_path(source)
+    templ = JinjaTemplate()
+    target_dir.factories[fname] = JinjaTemplate
+    templ.template = templatepath(fname) + '.jinja'
+    target_dir[fname] = templ
+    target_dir[fname].params = {'engine_name':'default', 'package_name':dotted_path(source)}
+    
+    # now lets call config_db from the __init__.py
+    imps = Imports(module)
+    imps.set('sqla_config', 'config_db')
+    main = module.functions('main')[0]
+    term = 'config.make_wsgi_app'
+    make_app = main.blocks(term)[0]
+    lines = make_app.lines
+    # find occurrence of line in block
+    index = -1
+    found = False
+    for i in range(len(lines)):
+        if term in lines[i]:
+            index = i
+        if 'config_db' in lines[i]:
+            found=True
+            
+    tok=token('config',True,main=main,module=module)
+    if index != -1 and not found:
+        lines.insert(index, 'config_db(config)')
 
 @handler('setup_i18n', 'uml2fs', 'pyramid_semanticsgenerator', 'i18_egg')
 def setup_i18n(self, source, target):
@@ -384,6 +397,21 @@ def setup_i18n(self, source, target):
         att=Attribute(['_'],"TranslationStringFactory('%s')" % source.name)
         att.__name__=str(att.uuid)
         init.insertafterimports(att)
-        
-        
-        
+
+bootstrap_templ="""
+root=%s()
+return root
+"""
+
+@handler('create_site_root', 'uml2fs', 'connectorgenerator', 'pyramid_siteroot')
+def create_site_root(self, source, target):
+    targetclass=read_target_node(source,target.target)
+    module=targetclass.parent
+    if not module.functions('bootstrap'):
+        func=Function('bootstrap')
+        func.insertlast(Block(bootstrap_templ % source.name))
+        module.insertafter(func,targetclass)
+    else:
+        func=module.functions('bootstrap')[0]
+    #mark the class because it has to be referenced by main
+    token('site_root',True,site_root=source,klass=read_target_node(source,target.target), bootstrap=func)

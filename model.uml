@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:generator="http:///schemas/generator/_1Yi2wHtrEeKfMvxpliE4xA/48" xmlns:pyegg="http:///schemas/pyegg/_FjJE0HtmEeKvC-Xbutnx2A/28" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/generator/_1Yi2wHtrEeKfMvxpliE4xA/48 uml_profiles/generator.profile.uml#_1Yi2wXtrEeKfMvxpliE4xA http:///schemas/pyegg/_FjJE0HtmEeKvC-Xbutnx2A/28 uml_profiles/pyegg.profile.uml#_FjJr4HtmEeKvC-Xbutnx2A">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:generator="http:///schemas/generator/_1Yi2wHtrEeKfMvxpliE4xA/48" xmlns:pyegg="http:///schemas/pyegg/_B6iBsOLoEeKRUtLfnAuowQ/33" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/generator/_1Yi2wHtrEeKfMvxpliE4xA/48 uml_profiles/generator.profile.uml#_1Yi2wXtrEeKfMvxpliE4xA http:///schemas/pyegg/_B6iBsOLoEeKRUtLfnAuowQ/33 uml_profiles/pyegg.profile.uml#_B6iowOLoEeKRUtLfnAuowQ">
   <uml:Model xmi:id="_rxHwYFyQEeG1mLF7jMwarw" name="model">
     <packagedElement xmi:type="uml:Package" xmi:id="_0vR-MFyQEeG1mLF7jMwarw" name="agx.generator.pyramid">
       <packagedElement xmi:type="uml:Class" xmi:id="_RwyXUAshEeKGfoivsLRX3g" clientDependency="_ksdoEAsqEeKGfoivsLRX3g" name="uml2fs"/>
@@ -49,6 +49,9 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_CvxuMOf3EeKRUtLfnAuowQ" clientDependency="_L2ieYOf3EeKRUtLfnAuowQ _M1wfsOf3EeKRUtLfnAuowQ" name="setup_i18n"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_L2ieYOf3EeKRUtLfnAuowQ" name="" client="_CvxuMOf3EeKRUtLfnAuowQ" supplier="_jJxw0Of2EeKRUtLfnAuowQ"/>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_M1wfsOf3EeKRUtLfnAuowQ" name="" client="_CvxuMOf3EeKRUtLfnAuowQ" supplier="_bKGb0OSFEeKRUtLfnAuowQ"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_FUiS0A27EeOV161QtgzCTQ" clientDependency="_lAA-YA3BEeOV161QtgzCTQ _qAG0IA3BEeOV161QtgzCTQ" name="create_site_root"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_lAA-YA3BEeOV161QtgzCTQ" name="" client="_FUiS0A27EeOV161QtgzCTQ" supplier="_WGQZAA26EeOV161QtgzCTQ"/>
+        <packagedElement xmi:type="uml:Dependency" xmi:id="_qAG0IA3BEeOV161QtgzCTQ" name="" client="_FUiS0A27EeOV161QtgzCTQ" supplier="_WqdF4AsqEeKGfoivsLRX3g"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Package" xmi:id="_Srs_EAsvEeKbFrhzZvXz8w" name="scope">
         <packagedElement xmi:type="uml:Class" xmi:id="_Ic1AQBRDEeKcC97Hb5tvFQ" name="pyclass"/>
@@ -62,28 +65,29 @@
         <packagedElement xmi:type="uml:Class" xmi:id="_9CGSAOIJEeKRUtLfnAuowQ" name="view_class"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_jP7DwOPSEeKRUtLfnAuowQ" name="sqlalchemy_package"/>
         <packagedElement xmi:type="uml:Class" xmi:id="_jJxw0Of2EeKRUtLfnAuowQ" name="i18_egg"/>
+        <packagedElement xmi:type="uml:Class" xmi:id="_WGQZAA26EeOV161QtgzCTQ" name="pyramid_siteroot"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_b5bi4BRDEeKcC97Hb5tvFQ" name="pyramid"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_bKGb0OSFEeKRUtLfnAuowQ" clientDependency="_liLp8OSFEeKRUtLfnAuowQ" name="pyramid_semanticsgenerator"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_liLp8OSFEeKRUtLfnAuowQ" name="" client="_bKGb0OSFEeKRUtLfnAuowQ" supplier="_EGx54AsrEeKGfoivsLRX3g"/>
     </packagedElement>
-    <profileApplication xmi:id="_zZ1OMFyQEeG1mLF7jMwarw">
-      <eAnnotations xmi:id="_zaNBoFyQEeG1mLF7jMwarw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="uml_profiles/pyegg.profile.uml#_FjJr4HtmEeKvC-Xbutnx2A"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_zZ1OMFyQEeG1mLF7jMwarw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zaNBoFyQEeG1mLF7jMwarw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="uml_profiles/pyegg.profile.uml#_B6iowOLoEeKRUtLfnAuowQ"/>
       </eAnnotations>
-      <appliedProfile href="uml_profiles/pyegg.profile.uml#_HHBJsNqqEd6cif0axL0c4w"/>
+      <appliedProfile xmi:type="uml:Profile" href="uml_profiles/pyegg.profile.uml#_HHBJsNqqEd6cif0axL0c4w"/>
     </profileApplication>
-    <profileApplication xmi:id="_uF-6AAsbEeKGfoivsLRX3g">
-      <eAnnotations xmi:id="_uGkI0AsbEeKGfoivsLRX3g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_uF-6AAsbEeKGfoivsLRX3g">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_uGkI0AsbEeKGfoivsLRX3g" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="uml_profiles/zca.profile.uml#_pMPxoHtuEeKcwYROwbCD9g"/>
       </eAnnotations>
-      <appliedProfile href="uml_profiles/zca.profile.uml#_gTeSUL-VEeCXSLIizrgdww"/>
+      <appliedProfile xmi:type="uml:Profile" href="uml_profiles/zca.profile.uml#_gTeSUL-VEeCXSLIizrgdww"/>
     </profileApplication>
-    <profileApplication xmi:id="_BJ4gYAsqEeKGfoivsLRX3g">
-      <eAnnotations xmi:id="_BK7CMAsqEeKGfoivsLRX3g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_BJ4gYAsqEeKGfoivsLRX3g">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_BK7CMAsqEeKGfoivsLRX3g" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="uml_profiles/generator.profile.uml#_1Yi2wXtrEeKfMvxpliE4xA"/>
       </eAnnotations>
-      <appliedProfile href="uml_profiles/generator.profile.uml#_RhKtUAspEeKGfoivsLRX3g"/>
+      <appliedProfile xmi:type="uml:Profile" href="uml_profiles/generator.profile.uml#_RhKtUAspEeKGfoivsLRX3g"/>
     </profileApplication>
   </uml:Model>
   <pyegg:pyegg xmi:id="_3P7WAFyQEeG1mLF7jMwarw" base_Package="_0vR-MFyQEeG1mLF7jMwarw"/>
@@ -157,4 +161,8 @@
     <interfaces>IPackage</interfaces>
   </generator:class_scope>
   <generator:handler xmi:id="_JuzV0Of3EeKRUtLfnAuowQ" base_Class="_CvxuMOf3EeKRUtLfnAuowQ"/>
+  <generator:class_scope xmi:id="_hq9LQA26EeOV161QtgzCTQ" base_Class="_WGQZAA26EeOV161QtgzCTQ">
+    <stereotypes>sql:site_root</stereotypes>
+  </generator:class_scope>
+  <generator:handler xmi:id="_ChUu4A28EeOV161QtgzCTQ" base_Class="_FUiS0A27EeOV161QtgzCTQ"/>
 </xmi:XMI>
