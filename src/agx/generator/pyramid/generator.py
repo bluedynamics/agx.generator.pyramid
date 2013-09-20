@@ -86,7 +86,11 @@ def generate_configuration(self, source, target):
     # do the configurator stuff
     mainblock = main.blocks('Configurator')[0]
     
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+    # importmes
+    imptok = token('pyramid_importmes', True, packages=[])
+    for pack in imptok.packages:
+        mainblock.insertlineafter( "config.include('%s')" % pack,'Configurator', ifnotpresent=True)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
     # static views
     for sv in tok.static_views:
         mainblock.insertlineafter('''config.add_static_view('%s', '%s/',%s)''' % \
@@ -100,8 +104,8 @@ def generate_configuration(self, source, target):
             mainblock.insertlineafter("config.scan()" , 'add_static_view', ifnotpresent=True)
             
     # insert app stuff at end of block
-    mainblock.appendline("app = config.make_wsgi_app()")
-    mainblock.appendline("return app" )
+    mainblock.appendline("app = config.make_wsgi_app()", ifnotpresent=True)
+    mainblock.appendline("return app", ifnotpresent=True)
              
     if not module.blocks('__main__'):
         module.insertlast(Block('''if __name__ == '__main__':
@@ -207,9 +211,9 @@ def create_template_file(tdir, template, from_template=None, template_code=None)
         # if template code is given, fill it into the file
         if template_code:
             if fname not in tdir.keys():
-                file=File()
-                file.data=template_code
-                tdir[fname]=file
+                file = File()
+                file.data = template_code
+                tdir[fname] = file
                 
 
 @handler('generate_view_function', 'uml2fs', 'connectorgenerator',
@@ -265,7 +269,7 @@ def generate_view_function(self, source, target):
     
         # create the template in target dir
         template_code = tgv.direct('template_code', 'pyramid:view', None)
-        create_template_file(tdir, template, from_template, template_code = template_code and template_code.strip())   
+        create_template_file(tdir, template, from_template, template_code=template_code and template_code.strip())   
                  
         # generate default function body
         funccode = '''return {"page_title": "%s"}''' % source.name
