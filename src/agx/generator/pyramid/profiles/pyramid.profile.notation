@@ -129,6 +129,10 @@
         <element xmi:type="uml:Property" href="pyramid.profile.uml#_4UP4IJVwEeKlf65yjIehdg"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_4URtUZVwEeKlf65yjIehdg"/>
       </children>
+      <children xmi:type="notation:Shape" xmi:id="_UxEugCHhEeOlTPsoMfpC3A" type="3002">
+        <element xmi:type="uml:Property" href="pyramid.profile.uml#_UwOZ8CHhEeOlTPsoMfpC3A"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UxEugSHhEeOlTPsoMfpC3A"/>
+      </children>
       <styles xmi:type="notation:TitleStyle" xmi:id="_ylre8X7LEeKISLySejkwCA"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_ylre8n7LEeKISLySejkwCA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_ylre837LEeKISLySejkwCA"/>

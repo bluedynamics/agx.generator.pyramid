@@ -33,7 +33,10 @@ from node.ext.python.utils import Imports
 from node.ext.python import Function, Block, Decorator, Attribute
 from node.ext.uml.utils import TaggedValues
 from node.ext.template import JinjaTemplate, DTMLTemplate
-from node.ext.directory import Directory
+from node.ext.directory import (
+    Directory,
+    File,
+    )
 import agx
 
 def templatepath(name):
@@ -66,10 +69,10 @@ def generate_configuration(self, source, target):
     
     main = module.functions(name='main')[0]
     try:
-        srtok=token('site_root', False)
-        bootstrap=srtok.bootstrap
+        srtok = token('site_root', False)
+        bootstrap = srtok.bootstrap
     except ComponentLookupError:
-        bootstrap=None
+        bootstrap = None
         
     if not main.blocks('Configurator'):
         if bootstrap:
@@ -177,7 +180,7 @@ def mark_config_scan(self, source, target):
 def generate_docs(self, source, target):
     print NotImplementedError("generate docs.")
 
-def create_template_file(tdir, template, from_template=None):
+def create_template_file(tdir, template, from_template=None, template_code=None):
     splitted = template.split('/')
     fname = splitted[-1]
     if len(splitted) > 1:  # we have to check/create containing dirs
@@ -200,6 +203,14 @@ def create_template_file(tdir, template, from_template=None):
             tdir.factories[fname] = JinjaTemplate
             templ.template = templatepath(from_template) + '.dtml'
             tdir[fname] = templ
+    else:
+        # if template code is given, fill it into the file
+        if template_code:
+            if fname not in tdir.keys():
+                file=File()
+                file.data=template_code
+                tdir[fname]=file
+                
 
 @handler('generate_view_function', 'uml2fs', 'connectorgenerator',
          'view_function')
@@ -253,7 +264,9 @@ def generate_view_function(self, source, target):
         dec.kwargs['renderer'] = "'%s'" % template
     
         # create the template in target dir
-        create_template_file(tdir, template, from_template)            
+        template_code = tgv.direct('template_code', 'pyramid:view', None)
+        create_template_file(tdir, template, from_template, template_code = template_code and template_code.strip())   
+                 
         # generate default function body
         funccode = '''return {"page_title": "%s"}''' % source.name
     
@@ -381,37 +394,37 @@ def generate_sqlalchemy_config(self, source, target):
         if term in lines[i]:
             index = i
         if 'config_db' in lines[i]:
-            found=True
+            found = True
             
-    tok=token('config',True,main=main,module=module)
+    tok = token('config', True, main=main, module=module)
     if index != -1 and not found:
         lines.insert(index, 'config_db(config)')
 
 @handler('setup_i18n', 'uml2fs', 'pyramid_semanticsgenerator', 'i18_egg')
 def setup_i18n(self, source, target):
-    tdir=read_target_node(source,target.target)
-    init=tdir['__init__.py']
-    imps=Imports(init)
-    imps.set('pyramid.i18n','TranslationStringFactory')
+    tdir = read_target_node(source, target.target)
+    init = tdir['__init__.py']
+    imps = Imports(init)
+    imps.set('pyramid.i18n', 'TranslationStringFactory')
     if not init.attributes('_'):
-        att=Attribute(['_'],"TranslationStringFactory('%s')" % source.name)
-        att.__name__=str(att.uuid)
+        att = Attribute(['_'], "TranslationStringFactory('%s')" % source.name)
+        att.__name__ = str(att.uuid)
         init.insertafterimports(att)
 
-bootstrap_templ="""
+bootstrap_templ = """
 root=%s()
 return root
 """
 
 @handler('create_site_root', 'uml2fs', 'connectorgenerator', 'pyramid_siteroot')
 def create_site_root(self, source, target):
-    targetclass=read_target_node(source,target.target)
-    module=targetclass.parent
+    targetclass = read_target_node(source, target.target)
+    module = targetclass.parent
     if not module.functions('bootstrap'):
-        func=Function('bootstrap')
+        func = Function('bootstrap')
         func.insertlast(Block(bootstrap_templ % source.name))
-        module.insertafter(func,targetclass)
+        module.insertafter(func, targetclass)
     else:
-        func=module.functions('bootstrap')[0]
-    #mark the class because it has to be referenced by main
-    token('site_root',True,site_root=source,klass=read_target_node(source,target.target), bootstrap=func)
+        func = module.functions('bootstrap')[0]
+    # mark the class because it has to be referenced by main
+    token('site_root', True, site_root=source, klass=read_target_node(source, target.target), bootstrap=func)

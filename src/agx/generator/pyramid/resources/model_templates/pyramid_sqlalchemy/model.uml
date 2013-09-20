@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pyegg="http:///schemas/pyegg/_B6iBsOLoEeKRUtLfnAuowQ/33" xmlns:pyramid="http:///schemas/pyramid/_XjUk8OJtEeKRUtLfnAuowQ/20" xmlns:sql="http:///schemas/sql/_E4w1oHtnEeKfMvxpliE4xA/35" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/pyegg/_B6iBsOLoEeKRUtLfnAuowQ/33 uml_profiles/pyegg.profile.uml#_B6iowOLoEeKRUtLfnAuowQ http:///schemas/pyramid/_XjUk8OJtEeKRUtLfnAuowQ/20 uml_profiles/pyramid.profile.uml#_XjUk8eJtEeKRUtLfnAuowQ http:///schemas/sql/_E4w1oHtnEeKfMvxpliE4xA/35 uml_profiles/sql.profile.uml#_E4xcsHtnEeKfMvxpliE4xA">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:pyegg="http:///schemas/pyegg/_B6iBsOLoEeKRUtLfnAuowQ/33" xmlns:pyramid="http:///schemas/pyramid/_bXb-gCHhEeOlTPsoMfpC3A/23" xmlns:sql="http:///schemas/sql/_kYqz4A2oEeOxCYIpipnREA/36" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/pyegg/_B6iBsOLoEeKRUtLfnAuowQ/33 uml_profiles/pyegg.profile.uml#_B6iowOLoEeKRUtLfnAuowQ http:///schemas/pyramid/_bXb-gCHhEeOlTPsoMfpC3A/23 uml_profiles/pyramid.profile.uml#_bXfo4CHhEeOlTPsoMfpC3A http:///schemas/sql/_kYqz4A2oEeOxCYIpipnREA/36 uml_profiles/sql.profile.uml#_kYra8A2oEeOxCYIpipnREA">
   <uml:Model xmi:id="_rxHwYFyQEeG1mLF7jMwarw" name="model">
     <packageImport xmi:id="_qTyF0OSHEeKRUtLfnAuowQ">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -17,6 +17,7 @@
           <ownedOperation xmi:id="_tMQwMOTGEeKRUtLfnAuowQ" name="persons"/>
           <ownedOperation xmi:id="_sgZ4EOMLEeKRUtLfnAuowQ" name="site_menu"/>
           <ownedOperation xmi:id="_mOAvMOTHEeKRUtLfnAuowQ" name="create_person"/>
+          <ownedOperation xmi:id="_Pce-gCHYEeOVyNWVMYLTgA" name="enum_persons"/>
         </packagedElement>
         <packagedElement xmi:type="uml:Dependency" xmi:id="_NV92MOSIEeKRUtLfnAuowQ" name="" client="_2FtoAJVEEeKiprBeZA9sgQ" supplier="_XRrG0OSHEeKRUtLfnAuowQ"/>
       </packagedElement>
@@ -102,13 +103,13 @@
       </packagedElement>
       <profileApplication xmi:id="_nuwlIJPGEeKlf65yjIehdg">
         <eAnnotations xmi:id="_nvPGQJPGEeKlf65yjIehdg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-          <references xmi:type="ecore:EPackage" href="uml_profiles/pyramid.profile.uml#_XjUk8eJtEeKRUtLfnAuowQ"/>
+          <references xmi:type="ecore:EPackage" href="uml_profiles/pyramid.profile.uml#_bXfo4CHhEeOlTPsoMfpC3A"/>
         </eAnnotations>
         <appliedProfile href="uml_profiles/pyramid.profile.uml#_29Xa4FwvEeK2OIPViOliQA"/>
       </profileApplication>
       <profileApplication xmi:id="_GqAJ8OSHEeKRUtLfnAuowQ">
         <eAnnotations xmi:id="_GqVhIOSHEeKRUtLfnAuowQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-          <references xmi:type="ecore:EPackage" href="uml_profiles/sql.profile.uml#_E4xcsHtnEeKfMvxpliE4xA"/>
+          <references xmi:type="ecore:EPackage" href="uml_profiles/sql.profile.uml#_kYra8A2oEeOxCYIpipnREA"/>
         </eAnnotations>
         <appliedProfile href="uml_profiles/sql.profile.uml#_f6v-ANgQEeGgbbtOgTBdsg"/>
       </profileApplication>
@@ -131,9 +132,9 @@
   <pyramid:view xmi:id="_u8OzkOMGEeKRUtLfnAuowQ" route_name="/" base_Operation="_stIewOMGEeKRUtLfnAuowQ" template="templates/home.pt" from_template="content_pt"/>
   <pyramid:view xmi:id="_3MQJAOMGEeKRUtLfnAuowQ" route_name="about.html" base_Operation="_1Y1DkOMGEeKRUtLfnAuowQ" template="templates/about.pt" from_template="content_pt"/>
   <pyramid:view xmi:id="_fchLAOMLEeKRUtLfnAuowQ" route_name="imprint.html" base_Operation="_dm8wgOMLEeKRUtLfnAuowQ" template="templates/imprint.pt" from_template="content_pt"/>
-  <pyegg:function xmi:id="_vQG_kOMLEeKRUtLfnAuowQ" base_Operation="_sgZ4EOMLEeKRUtLfnAuowQ" code="'''static implementation, insert your menu logic here'''&#xA;new_menu = SITE_MENU = [&#xA;    {'href': '', 'title': 'Home'},&#xA;    {'href': 'about.html', 'title': 'About'},&#xA;    {'href': 'imprint.html', 'title': 'Imprint'},&#xA;    ]&#xA;&#xA;url = self.request.url&#xA;for menu in new_menu:&#xA;    if menu['title'] == 'Home':&#xA;        menu['current'] = url.endswith('/')&#xA;    else:&#xA;        menu['current'] = url.endswith(menu['href'])&#xA;        &#xA;return new_menu&#xA;"/>
+  <pyegg:function xmi:id="_vQG_kOMLEeKRUtLfnAuowQ" base_Operation="_sgZ4EOMLEeKRUtLfnAuowQ" code="'''static implementation, insert your menu logic here'''&#xA;new_menu = SITE_MENU = [&#xA;      {'href': '', 'title': 'Home'},&#xA;      {'href': 'about.html', 'title': 'About'},&#xA;      {'href': 'persons.html', 'title': 'Persons'},&#xA;      {'href': 'create_person','title':'Add Random Person'},&#xA;      {'href': 'imprint.html', 'title': 'Imprint'},&#xA;      ]&#xA;&#xA;url = self.request.url&#xA;for menu in new_menu:&#xA;    if menu['title'] == 'Home':&#xA;        menu['current'] = url.endswith('/')&#xA;    else:&#xA;        menu['current'] = url.endswith(menu['href'])&#xA;        &#xA;return new_menu&#xA;"/>
   <pyegg:pymodule xmi:id="_Tih7kOSHEeKRUtLfnAuowQ" base_Package="_QPZW4OSHEeKRUtLfnAuowQ"/>
-  <pyramid:view xmi:id="_z4ILQOTGEeKRUtLfnAuowQ" route_name="persons.html" base_Operation="_tMQwMOTGEeKRUtLfnAuowQ" template="templates/persons.pt" from_template="content_pt"/>
+  <pyramid:view xmi:id="_z4ILQOTGEeKRUtLfnAuowQ" route_name="persons.html" base_Operation="_tMQwMOTGEeKRUtLfnAuowQ" template="templates/persons.pt" template_code="&lt;div metal:use-macro=&quot;view.global_template&quot;>&#xA;&#x9;&lt;div metal:fill-slot=&quot;content&quot;>&#xA;&#x9;&#x9;&lt;p>Home page content goes here.&lt;/p>&#xA;&#x9;&#x9;&lt;div tal:repeat=&quot;pers view.enum_persons()&quot;>&#xA;&#x9;&#x9;&#x9;&lt;span tal:content=&quot;pers.firstname&quot; />&#xA;&#x9;&#x9;&#x9;&lt;span tal:content=&quot;pers.lastname&quot; />&#xA;&#x9;&#x9;&lt;/div>&#xA;&#x9;&lt;/div>&#xA;&lt;/div>"/>
   <sql:z3c_saconfig xmi:id="_CXI9EOTIEeKRUtLfnAuowQ" base_Package="_0vR-MFyQEeG1mLF7jMwarw" engine_url="sqlite:///demo.db"/>
   <sql:sql_content xmi:id="_P1buMOTIEeKRUtLfnAuowQ" base_Class="_XRrG0OSHEeKRUtLfnAuowQ"/>
   <sql:sql_content xmi:id="_Sunh0OTIEeKRUtLfnAuowQ" base_Class="_C15LEOTHEeKRUtLfnAuowQ"/>
@@ -141,4 +142,6 @@
   <pyramid:view xmi:id="_fLUBIOTKEeKRUtLfnAuowQ" base_Operation="_mOAvMOTHEeKRUtLfnAuowQ"/>
   <sql:primary xmi:id="_VmebkOTPEeKRUtLfnAuowQ" base_Property="_XMs2sOTIEeKRUtLfnAuowQ"/>
   <pyegg:function xmi:id="_oebHEOTREeKRUtLfnAuowQ" base_Operation="_mOAvMOTHEeKRUtLfnAuowQ" code="'''does some silly random person creation'''&#xA;import random&#xA;import model&#xA;firstnames = ['Donald', 'Gustav', 'Dagobert', 'Walter', 'Brian']&#xA;lastnames = ['Duck', 'Smith', 'Gstierbreitner']&#xA;pers = model.Person(firstname=random.choice(firstnames), lastname=random.choice(lastnames))&#xA;self.request.db.add(pers)&#xA;pers.addresses.append(model.Address(city='Entenhausen', street='Erpelweg 13'))&#xA;return Response('Added %s %s' % (pers.firstname, pers.lastname))&#xA;"/>
+  <pyegg:function xmi:id="_TStpMCHYEeOVyNWVMYLTgA" base_Operation="_Pce-gCHYEeOVyNWVMYLTgA" code="import model&#xA;rows=self.request.db.query(model.Person).all()&#xA;return rows&#xA;"/>
+  <pyegg:function xmi:id="_nB7l0CHYEeOVyNWVMYLTgA" base_Operation="_tMQwMOTGEeKRUtLfnAuowQ"/>
 </xmi:XMI>
