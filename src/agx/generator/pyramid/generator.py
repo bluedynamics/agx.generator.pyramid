@@ -86,10 +86,7 @@ def generate_configuration(self, source, target):
     # do the configurator stuff
     mainblock = main.blocks('Configurator')[0]
     
-    # insert app stuff at end of block
-    mainblock.insertlineafter("app = config.make_wsgi_app()" , None, ifnotpresent=True)
-    mainblock.insertlineafter("return app" , 'make_wsgi_app', ifnotpresent=True)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
     # static views
     for sv in tok.static_views:
         mainblock.insertlineafter('''config.add_static_view('%s', '%s/',%s)''' % \
@@ -102,7 +99,10 @@ def generate_configuration(self, source, target):
         else:
             mainblock.insertlineafter("config.scan()" , 'add_static_view', ifnotpresent=True)
             
-            
+    # insert app stuff at end of block
+    mainblock.appendline("app = config.make_wsgi_app()")
+    mainblock.appendline("return app" )
+             
     if not module.blocks('__main__'):
         module.insertlast(Block('''if __name__ == '__main__':
     app = main()

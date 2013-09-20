@@ -97,7 +97,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_J_oyAg2lEeOLPZ4zoaUjpQ"/>
     </children>
     <element xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiueN1wwEeK2OIPViOliQA" x="352" y="104"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NiueN1wwEeK2OIPViOliQA" x="248" y="108"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_ylq34H7LEeKISLySejkwCA" type="1026">
     <children xmi:type="notation:DecorationNode" xmi:id="_ylq34n7LEeKISLySejkwCA" type="1034"/>
